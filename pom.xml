@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <modules>
+        <module>uba-common</module>
+        <module>uba-plugin-component</module>
+        <module>uba-service-boot</module>
+        <module>uba-rest-component</module>
+        <module>uba-mq-component</module>
+        <module>uba-file-component</module>
+    </modules>
+
+    <parent>
+        <groupId>com.ztesoft.paas</groupId>
+        <artifactId>ztesoft-paas-parent</artifactId>
+        <version>9.3-SNAPSHOT</version>
+    </parent>
+    <groupId>com.iwhalecloud.bss.uba</groupId>
+    <artifactId>uba-parent</artifactId>
+    <version>9.3-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <magic-script.version>1.9.0</magic-script.version>
+        <magic-api.version>2.2.1</magic-api.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.ssssssss</groupId>
+                <artifactId>magic-script</artifactId>
+                <version>${magic-script.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ssssssss</groupId>
+                <artifactId>magic-api-spring-boot-starter</artifactId>
+                <version>${magic-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-csv</artifactId>
+                <version>1.10.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
