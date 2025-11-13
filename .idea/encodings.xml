@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-cluster/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-cluster/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-component/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-component/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-elasticsearch/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-elasticsearch/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-git/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-git/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-mongo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-mongo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-nebula/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-nebula/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-redis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-redis/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-springdoc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-springdoc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-swagger/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-swagger/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-task/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-task/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-servlet/magic-api-servlet-jakarta/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-servlet/magic-api-servlet-jakarta/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-servlet/magic-api-servlet-javaee/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-servlet/magic-api-servlet-javaee/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-servlet/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-servlet/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-spring-boot-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-spring-boot-starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-editor/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/magic-editor/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-script/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../magic-product/magic-script/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/uba-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/uba-file-component/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/uba-mq-component/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/uba-plugin-component/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/uba-rest-component/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/uba-service-boot/src/main/java" charset="UTF-8" />
+  </component>
+</project>

@@ -57,7 +57,7 @@ public class LocalFileOperator implements IFileOperator {
         }
 
         if (!sourceFile.renameTo(targetFile)) {
-            throw new RuntimeException("文件移动失败: " + sourceFilePath + " -> " + targetFilePath);
+            throw new RuntimeException("file remove failed: " + sourceFilePath + " -> " + targetFilePath);
         }
     }
 

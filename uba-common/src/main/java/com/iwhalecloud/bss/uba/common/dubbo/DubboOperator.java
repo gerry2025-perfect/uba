@@ -1,6 +1,5 @@
 package com.iwhalecloud.bss.uba.common.dubbo;
 
-import com.alibaba.fastjson.JSON;
 import com.iwhalecloud.bss.uba.common.CommonUtils;
 import com.iwhalecloud.bss.uba.common.exception.ExceptionDefine;
 import com.iwhalecloud.bss.uba.common.exception.UbaException;
@@ -30,15 +29,15 @@ public class DubboOperator {
         private Integer timeout;//dubbo服务超时时间
         private String groupName;//dubbo服务分组名称
 
-        /**从环境变量中获取配置项信息*/
-        public static ConfigInfo loadFromEnvi(String dubboServiceCode){
+        //从环境变量中获取配置项信息
+        /*public static ConfigInfo loadFromEnvi(String dubboServiceCode){
             ConfigInfo configInfo = new ConfigInfo();
             configInfo.setSourceCode(dubboServiceCode);
             configInfo.setTimeout(Integer.parseInt(PropertyHolder.getNoNullProp(dubboServiceCode + CommonConst.dubboTimeoutKey).trim()));
             configInfo.setGroupName(PropertyHolder.getNoNullProp(dubboServiceCode + CommonConst.dubboGroupKey).trim());
             configInfo.setRegisterAddress(PropertyHolder.getNoNullProp(dubboServiceCode + CommonConst.dubboTimeoutKey).trim());
             return configInfo;
-        }
+        }*/
     }
 
     /**zk注册中心缓存*/
@@ -59,11 +58,12 @@ public class DubboOperator {
         }
         DubboOperator dubboOperator = new DubboOperator();
         if(!registryConfigMap.containsKey(dubboServiceCode)){
-            dubboOperator.registryConfig = new RegistryConfig();
+             dubboOperator.registryConfig = new RegistryConfig();
             //如果参数中没有传入，就从环境变量中获取，这里主要是考虑初始化方有额外配置的情况
-            if(configInfo==null){
+            //所有配置信息都配置到magic配置中，不通过配置项
+            /*if(configInfo==null){
                 configInfo = ConfigInfo.loadFromEnvi(dubboServiceCode);
-            }
+            }*/
             dubboOperator.registryConfig.setAddress(configInfo.getRegisterAddress());
             dubboOperator.registryConfig.setTimeout(configInfo.getTimeout());
             dubboOperator.registryConfig.setGroup(configInfo.getGroupName());
@@ -138,7 +138,7 @@ public class DubboOperator {
         return cache.get(reference);
     }
 
-    public static void main(String[] args){
+    /*public static void main(String[] args){
         System.out.println("-->"+JSON.toJSONString(getInstance(PropertyHolder.getProp(CommonConst.dubboAddressKey), null).invoke(
                 "com.iwhalecloud.zsmart.bss.cfg.intf.IConfigItemIntf",
                 "pullConfigItemList", new Object[]{"de", "CPC", "CFG1", true}, List.class, new Type() {
@@ -146,6 +146,6 @@ public class DubboOperator {
                         return "java.util.List<com.iwhalecloud.zsmart.bss.cfg.data.ConfigItem>";
                     }
                 })));
-    }
+    }*/
 
 }

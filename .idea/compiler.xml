@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="uba-mq-component" />
+        <module name="magic-api-plugin-task" />
+        <module name="uba-common" />
+        <module name="magic-api-plugin-swagger" />
+        <module name="uba-service-boot" />
+        <module name="magic-api-spring-boot-starter" />
+        <module name="uba-file-component" />
+        <module name="magic-api-plugin-mongo" />
+        <module name="magic-api-plugin-springdoc" />
+        <module name="magic-editor" />
+        <module name="magic-api-plugin-redis" />
+        <module name="magic-script" />
+        <module name="magic-api-plugin-component" />
+        <module name="magic-api-servlet-jakarta" />
+        <module name="magic-api-plugin-cluster" />
+        <module name="magic-api-plugin-git" />
+        <module name="magic-api" />
+        <module name="magic-api-servlet-javaee" />
+        <module name="uba-rest-component" />
+        <module name="magic-api-plugin-nebula" />
+        <module name="uba-plugin-component" />
+        <module name="magic-api-plugin-elasticsearch" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="magic-api" options="-parameters -parameters" />
+      <module name="magic-api-parent" options="-parameters -parameters" />
+      <module name="magic-api-plugin-cluster" options="-parameters -parameters" />
+      <module name="magic-api-plugin-component" options="-parameters -parameters" />
+      <module name="magic-api-plugin-elasticsearch" options="-parameters -parameters" />
+      <module name="magic-api-plugin-git" options="-parameters -parameters" />
+      <module name="magic-api-plugin-mongo" options="-parameters -parameters" />
+      <module name="magic-api-plugin-nebula" options="-parameters -parameters" />
+      <module name="magic-api-plugin-redis" options="-parameters -parameters" />
+      <module name="magic-api-plugin-springdoc" options="-parameters -parameters" />
+      <module name="magic-api-plugin-swagger" options="-parameters -parameters" />
+      <module name="magic-api-plugin-task" options="-parameters -parameters" />
+      <module name="magic-api-plugins" options="-parameters -parameters" />
+      <module name="magic-api-servlet" options="-parameters -parameters" />
+      <module name="magic-api-servlet-jakarta" options="-parameters -parameters" />
+      <module name="magic-api-servlet-javaee" options="-parameters -parameters" />
+      <module name="magic-api-spring-boot-starter" options="-parameters -parameters" />
+      <module name="magic-editor" options="-parameters -parameters" />
+      <module name="uba-common" options="-parameters" />
+      <module name="uba-file-component" options="-parameters" />
+      <module name="uba-mq-component" options="-parameters" />
+      <module name="uba-plugin-component" options="-parameters" />
+      <module name="uba-rest-component" options="-parameters" />
+      <module name="uba-service-boot" options="-parameters" />
+    </option>
+  </component>
+</project>

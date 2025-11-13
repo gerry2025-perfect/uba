@@ -56,14 +56,14 @@ public class FtpsFileOperator extends FtpFileOperator {
             int replyCode = ftpClient.getReplyCode();
             if (!FTPReply.isPositiveCompletion(replyCode)) {
                 ftpClient.disconnect();
-                throw new RuntimeException("FTPS服务器连接失败，响应码: " + replyCode);
+                throw new RuntimeException("FTPS server connect failed, response code: " + replyCode);
             }
             // 升级到加密连接 (显式FTPS)
             ((FTPSClient)ftpClient).execAUTH("TLS");
             // 登录
             if (!ftpClient.login(fileInfo.getUsername(), fileInfo.getPassword())) {
                 ftpClient.disconnect();
-                throw new RuntimeException("FTPS登录失败");
+                throw new RuntimeException("login to ftps server failed");
             }
 
             // 设置传输模式为二进制
@@ -72,7 +72,7 @@ public class FtpsFileOperator extends FtpFileOperator {
             ftpClient.enterLocalPassiveMode();
 
         } catch (Exception e) {
-            throw new RuntimeException("FTPS连接异常", e);
+            throw new RuntimeException("FTPS connect error", e);
         }
     }
 

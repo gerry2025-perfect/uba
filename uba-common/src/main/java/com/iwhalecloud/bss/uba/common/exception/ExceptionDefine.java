@@ -11,6 +11,7 @@ public enum ExceptionDefine {
     COMM_ERROR_TYPE_NULL("UBA_COMM_ERROR_00004", "current value is null"),
     COMM_ERROR_TYPE_CHARSET_NOT_SUPPORT("UBA_COMM_ERROR_00005", "current charset is not support"),
     COMM_ERROR_TYPE_FILE_NOT_EXISTS("UBA_COMM_ERROR_00006", "file not exists"),
+    COMM_ERROR_TYPE_CONFIG_MISS("UBA_COMM_ERROR_00007", "magic config miss"),
 
     MQ_ERROR_TYPE_SEND("UBA_MQ_ERROR_00001", "send MQ error"),
     MQ_ERROR_TYPE_SEND_FAIL("UBA_MQ_ERROR_00002", "send MQ fail"),

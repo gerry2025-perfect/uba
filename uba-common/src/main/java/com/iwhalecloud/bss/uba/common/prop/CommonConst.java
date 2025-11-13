@@ -35,30 +35,7 @@ public class CommonConst {
 
     /**配置项key：MQ消费者名称*/
     public static String mqConsumerNameKey = APP_CODE + ".mq.consumer.name";
-    /**配置项key：MQ生产者清单*/
-    public static String mqProviderListKey = APP_CODE + ".mq.provider.list";
-    /**配置项key：MQ生产者地址*/
-    public static String mqProviderAddrKey = "mq.provider.%s.NamesrvAddr";
-    /**配置项key：MQ生产者topic*/
-    public static String mqProviderTopicKey = "mq.provider.%s.topic.list";
-    /**配置项key：MQ类型，可以是zmq,ctgmq,alimq或kafka*/
-    public static String mqProviderTypeKey = "mq.provider.%s.mq.type";
-    /**配置项key：MQ服务器用户名*/
-    public static String mqProviderAccessKey = "mq.provider.%s.access.key";
-    /**配置项key：MQ服务器密码*/
-    public static String mqProviderSecretKey = "mq.provider.%s.secret.key";
-
     /**配置项key：MQ生产者名称*/
     public static String mqProviderNameKey = APP_CODE + ".mq.provider.name";
-    /**配置项key：MQ服务器清单*/
-    public static String mqServerListKey = APP_CODE + ".mq.server.list";
-    /**配置项key：MQ服务器地址*/
-    public static String mqServerAddrKey = "mq.server.%s.NamesrvAddr";
-    /**配置项key：MQ类型，可以是zmq,ctgmq,alimq或kafka*/
-    public static String mqServerTypeKey = "mq.server.%s.mq.type";
-    /**配置项key：MQ服务器用户名*/
-    public static String mqServerAccessKey = "mq.server.%s.access.key";
-    /**配置项key：MQ服务器密码*/
-    public static String mqServerSecretKey = "mq.server.%s.secret.key";
 
 }

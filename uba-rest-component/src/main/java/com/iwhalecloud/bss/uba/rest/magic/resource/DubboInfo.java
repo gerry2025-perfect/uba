@@ -1,12 +1,15 @@
 package com.iwhalecloud.bss.uba.rest.magic.resource;
 
+import com.iwhalecloud.bss.uba.common.dubbo.DubboMetadataFetcher;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.ssssssss.magicapi.core.model.MagicEntity;
 
+import java.util.*;
+
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class DubboInfo extends MagicEntity {
+public class DubboInfo extends MagicEntity  {
 
     /**Dubbo服务端的唯一键*/
     private String key;
@@ -16,6 +19,12 @@ public class DubboInfo extends MagicEntity {
     private Integer timeout;
     /**Dubbo服务端组名称*/
     private String groupName;
+
+    private Set<ApiInfo> apis = new TreeSet<>(Comparator.comparing(ApiInfo::getServiceName));
+
+    public void addApi(ApiInfo apiInfo){
+        apis.add(apiInfo);
+    }
 
     @Override
     public MagicEntity simple() {
@@ -36,5 +45,17 @@ public class DubboInfo extends MagicEntity {
         dubboInfo.setRegisterAddr(this.registerAddr);
         return dubboInfo;
     }
+
+    @Data
+    public static class ApiInfo{
+        private String serviceName;
+        private Set<DubboMetadataFetcher.MethodInfo> methodList = new TreeSet<>(Comparator.comparing(DubboMetadataFetcher.MethodInfo::getName));
+
+        public void addMethod(DubboMetadataFetcher.MethodInfo methodInfo){
+            methodList.add(methodInfo);
+        }
+    }
+
+
     
 }

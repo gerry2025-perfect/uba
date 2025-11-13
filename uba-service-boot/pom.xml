@@ -38,7 +38,7 @@
             <artifactId>magic-api-plugin-task</artifactId>
             <version>2.2.1</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.iwhalecloud.easycode</groupId>
             <artifactId>pageflow-design-tool</artifactId>
             <version>9.2(9.3)-SNAPSHOT</version>
@@ -47,7 +47,7 @@
             <groupId>com.iwhalecloud.easycode</groupId>
             <artifactId>pageflow-runtime-engine</artifactId>
             <version>9.2(9.3)-SNAPSHOT</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
 </project>

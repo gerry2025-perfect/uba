@@ -26,7 +26,7 @@ public class FileInfo extends MagicEntity {
     // 密码（或使用密钥认证）
     private String password;
     // 公钥字符串
-    private String publicKey;
+    //private String publicKey;
     // 超时时间
     private int timeout = 30000;
     // 根目录
@@ -50,7 +50,7 @@ public class FileInfo extends MagicEntity {
         this.port = port;
         this.username = username;
         this.password = password;
-        this.publicKey = publicKey;
+        //this.publicKey = publicKey;
         this.knownHostsPath = knownHostsPath;
     }
 }

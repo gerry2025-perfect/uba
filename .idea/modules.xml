@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../ZSMART_HOME/ZSMART_HOME.iml" filepath="$PROJECT_DIR$/../../ZSMART_HOME/ZSMART_HOME.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uba-common/uba-common.iml" filepath="$PROJECT_DIR$/uba-common/uba-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uba-plugin-component/uba-plugin-component.iml" filepath="$PROJECT_DIR$/uba-plugin-component/uba-plugin-component.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uba-service-boot/uba-service-boot.iml" filepath="$PROJECT_DIR$/uba-service-boot/uba-service-boot.iml" />
+    </modules>
+  </component>
+</project>

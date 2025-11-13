@@ -73,7 +73,7 @@ public class MQOperateBuilder {
     }
 
     /**从配置项中获取MQ配置信息，构造对应Properties实体*/
-    public Properties buildMQConsumeProperties(String mqProvider) {
+    /*public Properties buildMQConsumeProperties(String mqProvider) {
         MQProperties mqProperties = new MQProperties();
         mqProperties.setAccessKey(PropertyHolder.getProp(String.format(CommonConst.mqProviderAccessKey, mqProvider)));
         mqProperties.setSecretKey(PropertyHolder.getProp(String.format(CommonConst.mqProviderSecretKey, mqProvider)));
@@ -81,7 +81,7 @@ public class MQOperateBuilder {
         mqProperties.setNamesrvAddr(getMQNamesrvAddr(CommonConst.mqProviderAddrKey, mqProvider));
         mqProperties.setUseNewConfig(true);
         return convertToProperties(mqProperties);
-    }
+    }*/
 
     /**取特定MQ主机的nameServAddr，如果没有取到，就取默认*/
     public String getMQNamesrvAddr(String specialKey, String mqServer) {

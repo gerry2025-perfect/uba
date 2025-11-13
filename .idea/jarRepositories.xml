@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="zsmart-snapshots-dev" />
+      <option name="name" value="zsmart-snapshots-dev" />
+      <option name="url" value="http://10.10.168.138:8081/nexus/content/repositories/snapshots/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="zsmart-releases-dev-1" />
+      <option name="name" value="zsmart-releases-dev-1" />
+      <option name="url" value="http://10.10.168.138:8081/nexus/content/repositories/releases/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="aliyun maven" />
+      <option name="name" value="aliyun maven" />
+      <option name="url" value="https://maven.aliyun.com/repository/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="zsmart-public-dev" />
+      <option name="name" value="zsmart-public-dev" />
+      <option name="url" value="http://10.10.168.138:8081/nexus/content/repositories/10.10.179.102public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="zsmart-releases-dev" />
+      <option name="name" value="zsmart-releases-dev" />
+      <option name="url" value="http://10.10.168.138:8081/nexus/content/repositories/10.10.168.122releases/" />
+    </remote-repository>
+  </component>
+</project>
