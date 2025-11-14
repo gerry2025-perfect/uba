@@ -62,7 +62,7 @@ public class LocalFileOperator implements IFileOperator {
     }
 
     @Override
-    public List<String> getFileNames(String fileDir) {
+    public List<String> getFileNames(String fileDir, FileType fileType) {
         logger.debug(String.format("get file names, key: %s, filePath: %s",
                 fileInfo.getKey(), fileDir));
         File dir = new File(buildFullPath(rootDir, fileDir));
@@ -76,7 +76,21 @@ public class LocalFileOperator implements IFileOperator {
         }
         List<String> fileNames = new ArrayList<>();
         for (File file : files) {
-            fileNames.add(file.getName());
+            switch (fileType) {
+                case FILE:
+                    if (file.isFile()) {
+                        fileNames.add(file.getName());
+                    }
+                    break;
+                case DIRECTORY:
+                    if (file.isDirectory()) {
+                        fileNames.add(file.getName());
+                    }
+                    break;
+                case ALL:
+                    fileNames.add(file.getName());
+                    break;
+            }
         }
         return fileNames;
     }

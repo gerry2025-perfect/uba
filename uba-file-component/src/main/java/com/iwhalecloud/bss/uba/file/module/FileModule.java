@@ -38,17 +38,7 @@ public class FileModule implements DynamicAttribute<FileModule, FileModule>,Dyna
     }
 
     private IFileOperator newFileOperator(FileInfo fileInfo){
-        switch (fileInfo.getFileType()){
-            case local:
-                return new LocalFileOperator(fileInfo);
-            case ftp:
-                return new FtpFileOperator(fileInfo);
-            case ftps:
-                return new FtpsFileOperator(fileInfo);
-            case sftp:
-                return new SftpFileOperator(fileInfo);
-        }
-        throw new RuntimeException("current file type is not supported, fileType:" + fileInfo.getFileType());
+        return FileOperatorFactory.newFileOperator(fileInfo);
     }
 
     @Override
@@ -95,7 +85,7 @@ public class FileModule implements DynamicAttribute<FileModule, FileModule>,Dyna
 
     @Comment("获取文件名称清单")
     public List<String> getFileNames(String fileDir){
-        return fileOperator.getFileNames(fileDir);
+        return fileOperator.getFileNames(fileDir, IFileOperator.FileType.ALL);
     }
 
     @Comment("删除文件")

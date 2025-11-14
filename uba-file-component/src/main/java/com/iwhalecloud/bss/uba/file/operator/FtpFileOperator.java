@@ -112,7 +112,7 @@ public class FtpFileOperator implements IFileOperator, IReleasable {
     }
 
     @Override
-    public List<String> getFileNames(String fileDir) {
+    public List<String> getFileNames(String fileDir, FileType fileType) {
         try {
             connect();
             String dir = buildFullPath(fileInfo.getRootDir(), fileDir);
@@ -121,7 +121,21 @@ public class FtpFileOperator implements IFileOperator, IReleasable {
             List<String> fileNames = new ArrayList<>();
             if (files != null) {
                 for (FTPFile file : files) {
-                    fileNames.add(file.getName());
+                    switch (fileType) {
+                        case FILE:
+                            if (file.isFile()) {
+                                fileNames.add(file.getName());
+                            }
+                            break;
+                        case DIRECTORY:
+                            if (file.isDirectory()) {
+                                fileNames.add(file.getName());
+                            }
+                            break;
+                        case ALL:
+                            fileNames.add(file.getName());
+                            break;
+                    }
                 }
             }
             return fileNames;

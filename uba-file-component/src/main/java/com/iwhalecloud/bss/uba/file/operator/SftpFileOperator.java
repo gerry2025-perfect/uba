@@ -200,7 +200,7 @@ public class SftpFileOperator implements IFileOperator, IReleasable {
     }
 
     @Override
-    public List<String> getFileNames(String fileDir) {
+    public List<String> getFileNames(String fileDir, FileType fileType) {
         try {
             connect();
             String dir = buildFullPath(fileInfo.getRootDir(), fileDir);
@@ -211,7 +211,21 @@ public class SftpFileOperator implements IFileOperator, IReleasable {
             for (ChannelSftp.LsEntry entry : entries) {
                 // 跳过当前目录(.)和父目录(..)
                 if (!".".equals(entry.getFilename()) && !"..".equals(entry.getFilename())) {
-                    fileNames.add(entry.getFilename());
+                    switch (fileType) {
+                        case FILE:
+                            if (!entry.getAttrs().isDir()) {
+                                fileNames.add(entry.getFilename());
+                            }
+                            break;
+                        case DIRECTORY:
+                            if (entry.getAttrs().isDir()) {
+                                fileNames.add(entry.getFilename());
+                            }
+                            break;
+                        case ALL:
+                            fileNames.add(entry.getFilename());
+                            break;
+                    }
                 }
             }
 
@@ -306,7 +320,7 @@ public class SftpFileOperator implements IFileOperator, IReleasable {
         fileInfo.setHost("localhost");
         SftpFileOperator sftpFileOperator = new SftpFileOperator(fileInfo);
         try {
-            System.out.println(sftpFileOperator.getFileNames(""));
+            System.out.println(sftpFileOperator.getFileNames("", FileType.ALL));
         }catch (Exception e) {
             e.printStackTrace();
         }finally {

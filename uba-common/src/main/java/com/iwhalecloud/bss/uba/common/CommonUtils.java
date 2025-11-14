@@ -478,4 +478,23 @@ public class CommonUtils {
         }
     }
 
+    /**
+     * 构建完整的文件路径
+     */
+    public static String buildFullPath(String rootDir, String filePath) {
+        if (rootDir == null || rootDir.trim().isEmpty() || filePath.startsWith(rootDir)) {
+            return filePath;
+        }
+
+        if (!rootDir.endsWith("/")) {
+            rootDir += "/";
+        }
+
+        if (filePath.startsWith("/")) {
+            filePath = filePath.substring(1);
+        }
+
+        return rootDir + filePath;
+    }
+
 }

@@ -1,10 +1,13 @@
 package com.iwhalecloud.bss.uba.service.web;
 
+import com.iwhalecloud.bss.uba.common.CommonUtils;
 import com.iwhalecloud.bss.uba.common.dubbo.DubboMetadataFetcher;
+import com.iwhalecloud.bss.uba.file.magic.resource.FileInfo;
+import com.iwhalecloud.bss.uba.file.operator.FileOperatorFactory;
+import com.iwhalecloud.bss.uba.file.operator.IFileOperator;
+import com.iwhalecloud.bss.uba.mq.magic.resource.MessageQueueInfo;
 import com.iwhalecloud.bss.uba.rest.magic.resource.DubboInfo;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.ssssssss.magicapi.core.config.MagicConfiguration;
 import org.ssssssss.magicapi.core.interceptor.Authorization;
 import org.ssssssss.magicapi.core.model.JsonBean;
@@ -12,7 +15,12 @@ import org.ssssssss.magicapi.core.model.MagicEntity;
 import org.ssssssss.magicapi.core.servlet.MagicHttpServletRequest;
 import org.ssssssss.magicapi.core.web.MagicController;
 import org.ssssssss.magicapi.core.web.MagicExceptionHandler;
+import org.ssssssss.magicapi.utils.IoUtils;
+import org.ssssssss.magicapi.utils.JsonUtils;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -64,10 +72,108 @@ public class MagicExtController  extends MagicController implements MagicExcepti
                 return new JsonBean<>(-1, e.getMessage());
             }
         }else{
-            return new JsonBean<>(-1, String.format("can not be refresh: current file [%s] is not dubbo", id));
+            return new JsonBean<>(-1, String.format("can not be refresh: current file [%s] is not dubbo resource", id));
         }
     }
 
-    /**新增MQ*/
+    /**新增MQ topic
+     * @param topicType topic类型，consumer 订阅者；producer 生产者；all 生产者 + 消费者
+     * */
+    @PostMapping("/resource/mq/{id}/topic/{topicType}")
+    @ResponseBody
+    public JsonBean<MagicEntity> saveMQTopic(@PathVariable("id") String id, @PathVariable("topicType") String topicType, MagicHttpServletRequest request) throws IOException {
+        //新增的时候需要校验topic是否已存在
+        MagicEntity entity = MagicConfiguration.getMagicResourceService().file(id);
+        if(entity instanceof MessageQueueInfo messageQueueInfo){
+            byte[] bytes = IoUtils.bytes(request.getInputStream());
+            MessageQueueInfo.TopicInfo topicInfo = JsonUtils.readValue(bytes, MessageQueueInfo.TopicInfo.class);
+            boolean isConsumer = MessageQueueInfo.DIRECT_CONSUMER.equals(topicType) || MessageQueueInfo.DIRECT_PRODUCER_CONSUMER.equals(topicType);
+            if(isExistTopic(messageQueueInfo.getConsumerTopics(), topicInfo) && isConsumer){
+                return new JsonBean<>(-1, String.format("save fail: topic [%s] exist in consumer topic list", topicInfo.getTopicName()));
+            }
+            boolean isProducer = (MessageQueueInfo.DIRECT_PRODUCER.equals(topicType) || MessageQueueInfo.DIRECT_PRODUCER_CONSUMER.equals(topicType));
+            if(isExistTopic(messageQueueInfo.getProducerTopics(), topicInfo) && isProducer){
+                return new JsonBean<>(-1, String.format("save fail: topic [%s] exist in producer topic list", topicInfo.getTopicName()));
+            }
+            if(isConsumer){
+                replaceTopic(messageQueueInfo.getConsumerTopics(), topicInfo);
+            }
+            if(isProducer){
+                replaceTopic(messageQueueInfo.getProducerTopics(), topicInfo);
+            }
+            //自动更新MQ定义上的范围
+            if(isConsumer && (messageQueueInfo.getDirect()==null || messageQueueInfo.getDirect().isEmpty())){
+                messageQueueInfo.setDirect(MessageQueueInfo.DIRECT_CONSUMER);
+            }
+            if(isProducer && (messageQueueInfo.getDirect()==null || messageQueueInfo.getDirect().isEmpty())){
+                messageQueueInfo.setDirect(MessageQueueInfo.DIRECT_PRODUCER);
+            }
+            if(isConsumer && MessageQueueInfo.DIRECT_PRODUCER.equals(messageQueueInfo.getDirect())){
+                messageQueueInfo.setDirect(MessageQueueInfo.DIRECT_PRODUCER_CONSUMER);
+            }
+            if(isProducer && MessageQueueInfo.DIRECT_PRODUCER_CONSUMER.equals(messageQueueInfo.getDirect())){
+                messageQueueInfo.setDirect(MessageQueueInfo.DIRECT_PRODUCER_CONSUMER);
+            }
+            MagicConfiguration.getMagicResourceService().saveFile(messageQueueInfo);
+            return new JsonBean<>(entity);
+        }else{
+            return new JsonBean<>(-1, String.format("save fail: current file [%s] is not MQ resource", id));
+        }
+    }
+
+    /**修改MQ topic*/
+    @PatchMapping("/resource/mq/{id}/topic")
+    @ResponseBody
+    public JsonBean<MagicEntity> updateMQTopic(@PathVariable("id") String id, MagicHttpServletRequest request) throws IOException {
+        MagicEntity entity = MagicConfiguration.getMagicResourceService().file(id);
+        if(entity instanceof MessageQueueInfo messageQueueInfo){
+            byte[] bytes = IoUtils.bytes(request.getInputStream());
+            MessageQueueInfo.TopicInfo topicInfo = JsonUtils.readValue(bytes, MessageQueueInfo.TopicInfo.class);
+            if(isExistTopic(messageQueueInfo.getConsumerTopics(), topicInfo)){
+                replaceTopic(messageQueueInfo.getConsumerTopics(), topicInfo);
+            }
+            if(isExistTopic(messageQueueInfo.getProducerTopics(), topicInfo)){
+                replaceTopic(messageQueueInfo.getProducerTopics(), topicInfo);
+            }
+            MagicConfiguration.getMagicResourceService().saveFile(messageQueueInfo);
+            return new JsonBean<>(entity);
+        }else{
+            return new JsonBean<>(-1, String.format("save fail: current file [%s] is not MQ resource", id));
+        }
+    }
+
+    /**如果topic清单中包含就先移除再加上去*/
+    private void replaceTopic(List<MessageQueueInfo.TopicInfo> topicInfos, MessageQueueInfo.TopicInfo topicInfo){
+        if(topicInfos == null) topicInfos = new ArrayList<>();
+        topicInfos.removeIf(topicInfo1 -> topicInfo.getTopicName().equals(topicInfo1.getTopicName()));
+        topicInfos.add(topicInfo);
+    }
+
+    /**判断topic是否已经存在*/
+    private boolean isExistTopic(List<MessageQueueInfo.TopicInfo> topicInfos, MessageQueueInfo.TopicInfo topicInfo){
+        if(topicInfos!=null && !topicInfos.isEmpty()){
+            return topicInfos.stream().anyMatch(topicInfo1 -> topicInfo.getTopicName().equals(topicInfo1.getTopicName()) );
+        }else{
+            return false;
+        }
+    }
+
+    @GetMapping("/resource/file/{id}/sub")
+    @ResponseBody
+    public JsonBean<Map<String,List<String>>> queryFileStruct(@PathVariable("id") String id, MagicHttpServletRequest request) throws IOException {
+        MagicEntity entity = MagicConfiguration.getMagicResourceService().file(id);
+        if(entity instanceof FileInfo fileInfo) {
+            Map params = JsonUtils.readValue(IoUtils.bytes(request.getInputStream()),Map.class);
+            if(params==null) params = new HashMap();
+            String path = CommonUtils.buildFullPath(fileInfo.getRootDir(), !params.containsKey("path") ? "" : String.valueOf(params.get("path")));
+            IFileOperator fileOperator = FileOperatorFactory.newFileOperator(fileInfo);
+            Map<String,List<String>> result = new HashMap<>();
+            result.put("folders", fileOperator.getFileNames(path, IFileOperator.FileType.DIRECTORY));
+            result.put("files", fileOperator.getFileNames(path, IFileOperator.FileType.FILE));
+            return new JsonBean<>(result);
+        }else{
+            return new JsonBean<>(-1, String.format("save fail: current file [%s] is not File resource", id));
+        }
+    }
 
 }

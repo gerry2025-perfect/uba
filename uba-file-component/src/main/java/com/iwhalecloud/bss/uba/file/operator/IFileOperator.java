@@ -1,10 +1,18 @@
 package com.iwhalecloud.bss.uba.file.operator;
 
+import com.iwhalecloud.bss.uba.common.CommonUtils;
+
 import java.io.InputStream;
 import java.util.List;
 
 /**用来定义文件操作者接口，具体操作不同的文件会有不同的实现类*/
 public interface IFileOperator {
+
+    public enum FileType {
+        FILE,
+        DIRECTORY,
+        ALL
+    }
 
     /**读取文件流*/
     public InputStream getFile(String filePath);
@@ -13,7 +21,7 @@ public interface IFileOperator {
     public void removeTo(String sourceFilePath, String targetFilePath);
 
     /**获取文件名称清单*/
-    public List<String> getFileNames(String fileDir);
+    public List<String> getFileNames(String fileDir, FileType fileType);
 
     /**删除文件*/
     public void deleteFile(String filePath);
@@ -34,19 +42,7 @@ public interface IFileOperator {
      * 构建完整的文件路径
      */
     public default String buildFullPath(String rootDir, String filePath) {
-        if (rootDir == null || rootDir.trim().isEmpty() || filePath.startsWith(rootDir)) {
-            return filePath;
-        }
-
-        if (!rootDir.endsWith("/")) {
-            rootDir += "/";
-        }
-
-        if (filePath.startsWith("/")) {
-            filePath = filePath.substring(1);
-        }
-
-        return rootDir + filePath;
+        return CommonUtils.buildFullPath(rootDir, filePath);
     }
 
 }

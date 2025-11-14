@@ -16,7 +16,8 @@ public class MessageQueueInfo extends MagicEntity {
     public final static String DIRECT_CONSUMER = "consumer";
     /**生产者*/
     public final static String DIRECT_PRODUCER = "producer";
-
+    /**生产者 && 消费者*/
+    public final static String DIRECT_PRODUCER_CONSUMER = "all";
 
     /**MQ服务器的唯一键*/
     private String key;
