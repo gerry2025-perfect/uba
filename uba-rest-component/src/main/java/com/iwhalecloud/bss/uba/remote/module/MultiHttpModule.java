@@ -1,4 +1,4 @@
-package com.iwhalecloud.bss.uba.rest.module;
+package com.iwhalecloud.bss.uba.remote.module;
 
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.MediaType;

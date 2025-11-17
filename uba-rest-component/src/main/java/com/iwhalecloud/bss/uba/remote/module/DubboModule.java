@@ -1,12 +1,10 @@
-package com.iwhalecloud.bss.uba.rest.module;
+package com.iwhalecloud.bss.uba.remote.module;
 
 import com.iwhalecloud.bss.uba.common.CommonUtils;
 import com.iwhalecloud.bss.uba.common.dubbo.DubboOperator;
 import com.iwhalecloud.bss.uba.common.prop.CommonConst;
-import com.iwhalecloud.bss.uba.rest.magic.resource.DubboMagicDynamicRegistry;
+import com.iwhalecloud.bss.uba.remote.magic.resource.DubboMagicDynamicRegistry;
 import com.ztesoft.zsmart.core.log.ZSmartLogger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.ssssssss.magicapi.core.annotation.MagicModule;
 import org.ssssssss.magicapi.modules.DynamicModule;
 import org.ssssssss.script.MagicScriptContext;

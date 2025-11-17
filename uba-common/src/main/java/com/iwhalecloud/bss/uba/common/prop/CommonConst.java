@@ -30,6 +30,8 @@ public class CommonConst {
     public static String mqDefaultServerCode = "default_mq";
     /**配置项key：默认file配置*/
     public static String fileDefaultCode = "default_file";
+    /**配置项key：默认restful站点code*/
+    public static String restDefaultSiteCode = "default_rest";
     /**配置项key：默认dubbo服务器code*/
     public static String mqDefaultAddrKey = "ftf.mq.namesrv-addr";
 

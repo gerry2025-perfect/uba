@@ -6,10 +6,11 @@ import com.iwhalecloud.bss.uba.file.magic.resource.FileInfo;
 import com.iwhalecloud.bss.uba.file.operator.FileOperatorFactory;
 import com.iwhalecloud.bss.uba.file.operator.IFileOperator;
 import com.iwhalecloud.bss.uba.mq.magic.resource.MessageQueueInfo;
-import com.iwhalecloud.bss.uba.rest.magic.resource.DubboInfo;
+import com.iwhalecloud.bss.uba.remote.magic.resource.DubboInfo;
+import com.iwhalecloud.bss.uba.remote.magic.resource.RestEndpoint;
+import com.iwhalecloud.bss.uba.remote.magic.resource.RestSiteInfo;
 import org.springframework.web.bind.annotation.*;
 import org.ssssssss.magicapi.core.config.MagicConfiguration;
-import org.ssssssss.magicapi.core.interceptor.Authorization;
 import org.ssssssss.magicapi.core.model.JsonBean;
 import org.ssssssss.magicapi.core.model.MagicEntity;
 import org.ssssssss.magicapi.core.servlet.MagicHttpServletRequest;
@@ -139,6 +140,60 @@ public class MagicExtController  extends MagicController implements MagicExcepti
             return new JsonBean<>(entity);
         }else{
             return new JsonBean<>(-1, String.format("save fail: current file [%s] is not MQ resource", id));
+        }
+    }
+
+    /**删除MQ topic*/
+    @DeleteMapping("/resource/mq/{id}/topic/{topicName}")
+    @ResponseBody
+    public JsonBean<MagicEntity> deleteMQTopic(@PathVariable("id") String id, @PathVariable("topicName") String topicName) {
+        MagicEntity entity = MagicConfiguration.getMagicResourceService().file(id);
+        if (entity instanceof MessageQueueInfo messageQueueInfo) {
+            boolean removed = messageQueueInfo.getConsumerTopics().removeIf(topic -> topic.getTopicName().equals(topicName));
+            removed |= messageQueueInfo.getProducerTopics().removeIf(topic -> topic.getTopicName().equals(topicName));
+            if (removed) {
+                MagicConfiguration.getMagicResourceService().saveFile(messageQueueInfo);
+                return new JsonBean<>(entity);
+            } else {
+                return new JsonBean<>(-1, String.format("delete fail: topic [%s] not found", topicName));
+            }
+        } else {
+            return new JsonBean<>(-1, String.format("delete fail: current file [%s] is not MQ resource", id));
+        }
+    }
+
+    /**新增/修改 Restful API，根据api code判断，不存在就新增，存在就修改*/
+    @PostMapping("/resource/rest/{id}/api")
+    @ResponseBody
+    public JsonBean<MagicEntity> saveOrUpdateRestfulApi(@PathVariable("id") String id, MagicHttpServletRequest request) throws IOException {
+        MagicEntity entity = MagicConfiguration.getMagicResourceService().file(id);
+        if (entity instanceof RestSiteInfo restSiteInfo) {
+            byte[] bytes = IoUtils.bytes(request.getInputStream());
+            RestEndpoint endpoint = JsonUtils.readValue(bytes, RestEndpoint.class);
+            restSiteInfo.getApis().removeIf(api -> api.getCode().equals(endpoint.getCode()));
+            restSiteInfo.addApi(endpoint);
+            MagicConfiguration.getMagicResourceService().saveFile(restSiteInfo);
+            return new JsonBean<>(restSiteInfo);
+        } else {
+            return new JsonBean<>(-1, String.format("save fail: current file [%s] is not Restful resource", id));
+        }
+    }
+
+    /**删除Restful API*/
+    @DeleteMapping("/resource/rest/{id}/api/{apiCode}")
+    @ResponseBody
+    public JsonBean<MagicEntity> deleteRestfulApi(@PathVariable("id") String id, @PathVariable("apiCode") String apiCode) {
+        MagicEntity entity = MagicConfiguration.getMagicResourceService().file(id);
+        if (entity instanceof RestSiteInfo restSiteInfo) {
+            boolean removed = restSiteInfo.getApis().removeIf(api -> api.getCode().equals(apiCode));
+            if (removed) {
+                MagicConfiguration.getMagicResourceService().saveFile(restSiteInfo);
+                return new JsonBean<>(restSiteInfo);
+            } else {
+                return new JsonBean<>(-1, String.format("delete fail: api [%s] not found", apiCode));
+            }
+        } else {
+            return new JsonBean<>(-1, String.format("delete fail: current file [%s] is not Restful resource", id));
         }
     }
 

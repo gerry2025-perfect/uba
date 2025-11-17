@@ -1,9 +1,12 @@
-package com.iwhalecloud.bss.uba.rest.config;
+package com.iwhalecloud.bss.uba.remote.config;
 
-import com.iwhalecloud.bss.uba.rest.magic.resource.DubboMagicDynamicRegistry;
-import com.iwhalecloud.bss.uba.rest.magic.resource.DubboMagicResourceStorage;
-import com.iwhalecloud.bss.uba.rest.module.DubboModule;
-import com.iwhalecloud.bss.uba.rest.module.MultiHttpModule;
+import com.iwhalecloud.bss.uba.remote.magic.resource.DubboMagicDynamicRegistry;
+import com.iwhalecloud.bss.uba.remote.magic.resource.DubboMagicResourceStorage;
+import com.iwhalecloud.bss.uba.remote.magic.resource.RestfulMagicDynamicRegistry;
+import com.iwhalecloud.bss.uba.remote.magic.resource.RestfulMagicResourceStorage;
+import com.iwhalecloud.bss.uba.remote.module.DubboModule;
+import com.iwhalecloud.bss.uba.remote.module.MultiHttpModule;
+import com.iwhalecloud.bss.uba.remote.module.RestfulModule;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,7 +39,7 @@ public class UbaIntfConfig {
     }
 
     @Bean
-    public MultiHttpModule multiHttpModule(){
+    public RestTemplate restTemplate(){
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new StringHttpMessageConverter(StandardCharsets.UTF_8) {
             {
@@ -48,7 +51,29 @@ public class UbaIntfConfig {
                 return true;
             }
         });
+        return restTemplate;
+    }
+
+    @Bean
+    public MultiHttpModule multiHttpModule(RestTemplate restTemplate){
         return new MultiHttpModule(restTemplate);
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public RestfulMagicResourceStorage restfulMagicResourceStorage() {
+        return new RestfulMagicResourceStorage();
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public RestfulMagicDynamicRegistry restfulMagicDynamicRegistry(RestfulMagicResourceStorage restfulMagicResourceStorage, RestTemplate restTemplate) {
+        return new RestfulMagicDynamicRegistry(restfulMagicResourceStorage, restTemplate);
+    }
+
+    @Bean
+    public RestfulModule restfulModule(RestfulMagicDynamicRegistry restfulMagicDynamicRegistry){
+        return new RestfulModule(restfulMagicDynamicRegistry);
     }
 
 }
