@@ -1,6 +1,6 @@
 package com.iwhalecloud.bss.uba.common.dto;
 
-import org.ssssssss.magicapi.core.model.BaseDefinition;
+import com.iwhalecloud.bss.magic.magicapi.core.model.BaseDefinition;
 
 import java.util.ArrayList;
 

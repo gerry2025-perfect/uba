@@ -8,11 +8,11 @@ import com.iwhalecloud.bss.uba.file.operator.*;
 import com.ztesoft.zsmart.core.log.ZSmartLogger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.ssssssss.magicapi.core.annotation.MagicModule;
-import org.ssssssss.magicapi.modules.DynamicModule;
-import org.ssssssss.script.MagicScriptContext;
-import org.ssssssss.script.annotation.Comment;
-import org.ssssssss.script.functions.DynamicAttribute;
+import com.iwhalecloud.bss.magic.magicapi.core.annotation.MagicModule;
+import com.iwhalecloud.bss.magic.magicapi.modules.DynamicModule;
+import com.iwhalecloud.bss.magic.script.MagicScriptContext;
+import com.iwhalecloud.bss.magic.script.annotation.Comment;
+import com.iwhalecloud.bss.magic.script.functions.DynamicAttribute;
 
 import java.io.InputStream;
 import java.util.List;

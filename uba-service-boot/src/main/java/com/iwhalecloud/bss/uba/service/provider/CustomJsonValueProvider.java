@@ -1,15 +1,16 @@
 package com.iwhalecloud.bss.uba.service.provider;
 
-import org.ssssssss.magicapi.core.config.JsonCodeConstants;
-import org.ssssssss.magicapi.core.context.RequestEntity;
-import org.ssssssss.magicapi.core.interceptor.ResultProvider;
-import org.ssssssss.magicapi.core.model.JsonBean;
+import com.iwhalecloud.bss.magic.magicapi.core.interceptor.DefaultResultProvider;
+import com.iwhalecloud.bss.magic.magicapi.core.config.JsonCodeConstants;
+import com.iwhalecloud.bss.magic.magicapi.core.context.RequestEntity;
+import com.iwhalecloud.bss.magic.magicapi.core.interceptor.ResultProvider;
+import com.iwhalecloud.bss.magic.magicapi.core.model.JsonBean;
 
 /**
  * 自定义JSON结果
  * https://ssssssss.org/magic-api/pages/base/response/
- * @see org.ssssssss.magicapi.core.interceptor.ResultProvider
- * @see org.ssssssss.magicapi.core.interceptor.DefaultResultProvider
+ * @see ResultProvider
+ * @see DefaultResultProvider
  */
 public class CustomJsonValueProvider implements ResultProvider {
 

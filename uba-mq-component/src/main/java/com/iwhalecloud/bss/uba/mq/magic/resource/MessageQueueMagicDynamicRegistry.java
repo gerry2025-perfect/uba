@@ -10,9 +10,9 @@ import com.ztesoft.zsmart.core.mq.producer.CoreProducer;
 import lombok.Getter;
 import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.EventListener;
-import org.ssssssss.magicapi.core.event.FileEvent;
-import org.ssssssss.magicapi.core.service.AbstractMagicDynamicRegistry;
-import org.ssssssss.magicapi.core.service.MagicResourceStorage;
+import com.iwhalecloud.bss.magic.magicapi.core.event.FileEvent;
+import com.iwhalecloud.bss.magic.magicapi.core.service.AbstractMagicDynamicRegistry;
+import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceStorage;
 
 import java.util.*;
 

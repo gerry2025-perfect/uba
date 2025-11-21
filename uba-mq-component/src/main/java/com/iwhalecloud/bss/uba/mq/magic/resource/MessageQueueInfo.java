@@ -4,7 +4,7 @@ import com.iwhalecloud.bss.uba.common.dto.ParameterInfo;
 import com.iwhalecloud.bss.uba.common.prop.CommonConst;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.ssssssss.magicapi.core.model.MagicEntity;
+import com.iwhalecloud.bss.magic.magicapi.core.model.MagicEntity;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,9 +3,9 @@ package com.iwhalecloud.bss.uba.remote.magic.resource;
 import com.iwhalecloud.bss.uba.common.dubbo.DubboOperator;
 import com.ztesoft.zsmart.core.log.ZSmartLogger;
 import org.springframework.context.event.EventListener;
-import org.ssssssss.magicapi.core.event.FileEvent;
-import org.ssssssss.magicapi.core.service.AbstractMagicDynamicRegistry;
-import org.ssssssss.magicapi.core.service.MagicResourceStorage;
+import com.iwhalecloud.bss.magic.magicapi.core.event.FileEvent;
+import com.iwhalecloud.bss.magic.magicapi.core.service.AbstractMagicDynamicRegistry;
+import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceStorage;
 
 import java.util.HashMap;
 import java.util.Map;

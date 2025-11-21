@@ -1,16 +1,16 @@
 package com.iwhalecloud.bss.uba.service.interceptor;
 
-import org.ssssssss.magicapi.core.context.MagicUser;
-import org.ssssssss.magicapi.core.exception.MagicLoginException;
-import org.ssssssss.magicapi.core.interceptor.Authorization;
-import org.ssssssss.magicapi.core.interceptor.AuthorizationInterceptor;
-import org.ssssssss.magicapi.core.servlet.MagicHttpServletRequest;
+import com.iwhalecloud.bss.magic.magicapi.core.context.MagicUser;
+import com.iwhalecloud.bss.magic.magicapi.core.exception.MagicLoginException;
+import com.iwhalecloud.bss.magic.magicapi.core.interceptor.Authorization;
+import com.iwhalecloud.bss.magic.magicapi.core.interceptor.AuthorizationInterceptor;
+import com.iwhalecloud.bss.magic.magicapi.core.servlet.MagicHttpServletRequest;
 
 
 /**
  * 自定义UI界面鉴权
  * https://ssssssss.org/magic-api/pages/security/operation/
- * @see org.ssssssss.magicapi.core.interceptor.AuthorizationInterceptor
+ * @see AuthorizationInterceptor
  */
 public class CustomUIAuthorizationInterceptor implements AuthorizationInterceptor {
 

@@ -2,7 +2,7 @@ package com.iwhalecloud.bss.uba.remote.magic.resource;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.ssssssss.magicapi.core.model.MagicEntity;
+import com.iwhalecloud.bss.magic.magicapi.core.model.MagicEntity;
 
 import java.util.*;
 

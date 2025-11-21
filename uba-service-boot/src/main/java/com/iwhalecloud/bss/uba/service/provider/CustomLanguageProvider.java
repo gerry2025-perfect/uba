@@ -1,13 +1,13 @@
 package com.iwhalecloud.bss.uba.service.provider;
 
-import org.ssssssss.magicapi.jsr223.LanguageProvider;
+import com.iwhalecloud.bss.magic.magicapi.jsr223.LanguageProvider;
 
 import java.util.Map;
 
 /**
  * 自定义脚本语言
  * https://ssssssss.org/magic-api/pages/senior/script/
- * @see org.ssssssss.magicapi.jsr223.LanguageProvider
+ * @see LanguageProvider
  */
 public class CustomLanguageProvider implements LanguageProvider {
 

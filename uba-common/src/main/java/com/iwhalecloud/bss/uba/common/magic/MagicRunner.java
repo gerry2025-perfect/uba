@@ -4,7 +4,7 @@ import com.iwhalecloud.bss.uba.common.CommonUtils;
 import com.iwhalecloud.bss.uba.common.ResultEntity;
 import com.iwhalecloud.bss.uba.common.exception.ExceptionDefine;
 import com.ztesoft.zsmart.core.log.ZSmartLogger;
-import org.ssssssss.magicapi.core.service.MagicAPIService;
+import com.iwhalecloud.bss.magic.magicapi.core.service.MagicAPIService;
 
 import java.util.Map;
 

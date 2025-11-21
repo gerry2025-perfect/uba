@@ -10,7 +10,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.PropertyResolver;
-import org.ssssssss.magicapi.core.service.MagicAPIService;
+import com.iwhalecloud.bss.magic.magicapi.core.service.MagicAPIService;
 
 @Configuration
 public class CommonConfiguration implements InitializingBean {

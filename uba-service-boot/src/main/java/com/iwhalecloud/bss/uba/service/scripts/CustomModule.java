@@ -1,7 +1,11 @@
 package com.iwhalecloud.bss.uba.service.scripts;
 
-import org.ssssssss.magicapi.core.annotation.MagicModule;
-import org.ssssssss.script.annotation.Comment;
+import com.iwhalecloud.bss.magic.magicapi.core.annotation.MagicModule;
+import com.iwhalecloud.bss.magic.magicapi.modules.db.SQLModule;
+import com.iwhalecloud.bss.magic.magicapi.modules.http.HttpModule;
+import com.iwhalecloud.bss.magic.magicapi.modules.servlet.RequestModule;
+import com.iwhalecloud.bss.magic.magicapi.modules.servlet.ResponseModule;
+import com.iwhalecloud.bss.magic.script.annotation.Comment;
 
 /**
  * 自定义模块
@@ -11,11 +15,11 @@ import org.ssssssss.script.annotation.Comment;
  *
  * https://ssssssss.org/magic-api/pages/senior/module/
  *
- * @see org.ssssssss.magicapi.core.annotation.MagicModule
- * @see org.ssssssss.magicapi.modules.db.SQLModule
- * @see org.ssssssss.magicapi.modules.http.HttpModule
- * @see org.ssssssss.magicapi.modules.servlet.RequestModule
- * @see org.ssssssss.magicapi.modules.servlet.ResponseModule
+ * @see MagicModule
+ * @see SQLModule
+ * @see HttpModule
+ * @see RequestModule
+ * @see ResponseModule
  */
 @MagicModule("custom")
 public class CustomModule {

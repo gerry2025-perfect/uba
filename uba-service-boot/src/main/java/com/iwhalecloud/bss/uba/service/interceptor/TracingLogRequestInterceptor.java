@@ -3,11 +3,11 @@ package com.iwhalecloud.bss.uba.service.interceptor;
 import com.iwhalecloud.bss.uba.common.log.LogGenerator;
 import com.ztesoft.zsmart.core.log.ZSmartLogger;
 import org.springframework.stereotype.Component;
-import org.ssssssss.magicapi.core.interceptor.RequestInterceptor;
-import org.ssssssss.magicapi.core.model.ApiInfo;
-import org.ssssssss.magicapi.core.servlet.MagicHttpServletRequest;
-import org.ssssssss.magicapi.core.servlet.MagicHttpServletResponse;
-import org.ssssssss.script.MagicScriptContext;
+import com.iwhalecloud.bss.magic.magicapi.core.interceptor.RequestInterceptor;
+import com.iwhalecloud.bss.magic.magicapi.core.model.ApiInfo;
+import com.iwhalecloud.bss.magic.magicapi.core.servlet.MagicHttpServletRequest;
+import com.iwhalecloud.bss.magic.magicapi.core.servlet.MagicHttpServletResponse;
+import com.iwhalecloud.bss.magic.script.MagicScriptContext;
 
 @Component
 public class TracingLogRequestInterceptor implements RequestInterceptor {

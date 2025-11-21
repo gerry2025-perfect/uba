@@ -1,7 +1,8 @@
 package com.iwhalecloud.bss.uba.service.provider;
 
 
-import org.ssssssss.magicapi.modules.db.cache.SqlCache;
+import com.iwhalecloud.bss.magic.magicapi.modules.db.cache.DefaultSqlCache;
+import com.iwhalecloud.bss.magic.magicapi.modules.db.cache.SqlCache;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -11,8 +12,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 /**
  * 自定义SQL缓存
  * https://ssssssss.org/guide/custom/cache.html
- * @see org.ssssssss.magicapi.modules.db.cache.SqlCache
- * @see org.ssssssss.magicapi.modules.db.cache.DefaultSqlCache
+ * @see SqlCache
+ * @see DefaultSqlCache
  */
 public class CustomSqlCache extends LinkedHashMap<String, CustomSqlCache.ExpireNode<Object>> implements SqlCache {
 

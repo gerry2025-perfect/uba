@@ -3,18 +3,18 @@ package com.iwhalecloud.bss.uba.service.interceptor;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.ssssssss.magicapi.core.interceptor.RequestInterceptor;
-import org.ssssssss.magicapi.core.model.ApiInfo;
-import org.ssssssss.magicapi.core.model.JsonBean;
-import org.ssssssss.magicapi.core.model.Options;
-import org.ssssssss.magicapi.core.servlet.MagicHttpServletRequest;
-import org.ssssssss.magicapi.core.servlet.MagicHttpServletResponse;
-import org.ssssssss.script.MagicScriptContext;
+import com.iwhalecloud.bss.magic.magicapi.core.interceptor.RequestInterceptor;
+import com.iwhalecloud.bss.magic.magicapi.core.model.ApiInfo;
+import com.iwhalecloud.bss.magic.magicapi.core.model.JsonBean;
+import com.iwhalecloud.bss.magic.magicapi.core.model.Options;
+import com.iwhalecloud.bss.magic.magicapi.core.servlet.MagicHttpServletRequest;
+import com.iwhalecloud.bss.magic.magicapi.core.servlet.MagicHttpServletResponse;
+import com.iwhalecloud.bss.magic.script.MagicScriptContext;
 
 /**
  * 自定义请求拦截器，可实现鉴权
  * https://ssssssss.org/magic-api/pages/senior/interceptor/
- * @see org.ssssssss.magicapi.core.interceptor.RequestInterceptor
+ * @see RequestInterceptor
  */
 public class CustomRequestInterceptor implements RequestInterceptor {
 

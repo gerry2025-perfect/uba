@@ -1,13 +1,13 @@
 package com.iwhalecloud.bss.uba.file.magic.resource;
 
 import org.springframework.stereotype.Component;
-import org.ssssssss.magicapi.core.config.JsonCodeConstants;
-import org.ssssssss.magicapi.core.model.JsonCode;
-import org.ssssssss.magicapi.core.model.MagicEntity;
-import org.ssssssss.magicapi.core.service.MagicResourceService;
-import org.ssssssss.magicapi.core.service.MagicResourceStorage;
-import org.ssssssss.magicapi.utils.IoUtils;
-import org.ssssssss.magicapi.utils.JsonUtils;
+import com.iwhalecloud.bss.magic.magicapi.core.config.JsonCodeConstants;
+import com.iwhalecloud.bss.magic.magicapi.core.model.JsonCode;
+import com.iwhalecloud.bss.magic.magicapi.core.model.MagicEntity;
+import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceService;
+import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceStorage;
+import com.iwhalecloud.bss.magic.magicapi.utils.IoUtils;
+import com.iwhalecloud.bss.magic.magicapi.utils.JsonUtils;
 
 import java.util.Objects;
 

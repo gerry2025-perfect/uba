@@ -3,9 +3,9 @@ package com.iwhalecloud.bss.uba.remote.module;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
-import org.ssssssss.magicapi.core.annotation.MagicModule;
-import org.ssssssss.magicapi.modules.http.HttpModule;
-import org.ssssssss.script.annotation.Comment;
+import com.iwhalecloud.bss.magic.magicapi.core.annotation.MagicModule;
+import com.iwhalecloud.bss.magic.magicapi.modules.http.HttpModule;
+import com.iwhalecloud.bss.magic.script.annotation.Comment;
 
 /**用来进行文件上传的http请求，继承于HttpModule，因此也能发起普通请求*/
 @MagicModule("multiHttp")

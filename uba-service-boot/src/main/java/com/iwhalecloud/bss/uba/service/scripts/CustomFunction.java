@@ -1,9 +1,9 @@
 package com.iwhalecloud.bss.uba.service.scripts;
 
-import org.ssssssss.magicapi.core.config.MagicFunction;
-import org.ssssssss.script.annotation.Comment;
-import org.ssssssss.script.annotation.Function;
-import org.ssssssss.script.functions.DateExtension;
+import com.iwhalecloud.bss.magic.magicapi.core.config.MagicFunction;
+import com.iwhalecloud.bss.magic.script.annotation.Comment;
+import com.iwhalecloud.bss.magic.script.annotation.Function;
+import com.iwhalecloud.bss.magic.script.functions.DateExtension;
 
 import java.util.Date;
 

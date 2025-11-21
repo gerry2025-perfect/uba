@@ -24,7 +24,7 @@ public class ModuleLogAspect {
     /**
      * 定义切点，拦截实现 DynamicModule 接口的类中，所有被 @Comment 注解标记的方法。
      */
-    @Pointcut("@annotation(org.ssssssss.script.annotation.Comment)")
+    @Pointcut("@annotation(com.iwhalecloud.bss.magic.script.annotation.Comment)")
     public void dynamicModuleMethods() {
         logger.error("===============================================================");
     }

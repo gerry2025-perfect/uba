@@ -1,12 +1,12 @@
 package com.iwhalecloud.bss.uba.service.provider;
 
 
-import org.ssssssss.magicapi.modules.db.provider.ColumnMapperProvider;
+import com.iwhalecloud.bss.magic.magicapi.modules.db.provider.ColumnMapperProvider;
 
 /**
  * 自定义列名转换
  * https://ssssssss.org/magic-api/pages/senior/mapping/
- * @see org.ssssssss.magicapi.modules.db.provider.ColumnMapperProvider
+ * @see ColumnMapperProvider
  */
 public class CustomMapperProvider implements ColumnMapperProvider {
 

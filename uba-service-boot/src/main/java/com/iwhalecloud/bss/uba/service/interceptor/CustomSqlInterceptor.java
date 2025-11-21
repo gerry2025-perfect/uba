@@ -1,9 +1,9 @@
 package com.iwhalecloud.bss.uba.service.interceptor;
 
 
-import org.ssssssss.magicapi.core.context.RequestEntity;
-import org.ssssssss.magicapi.modules.db.BoundSql;
-import org.ssssssss.magicapi.modules.db.inteceptor.SQLInterceptor;
+import com.iwhalecloud.bss.magic.magicapi.core.context.RequestEntity;
+import com.iwhalecloud.bss.magic.magicapi.modules.db.BoundSql;
+import com.iwhalecloud.bss.magic.magicapi.modules.db.inteceptor.SQLInterceptor;
 
 import java.util.Arrays;
 
@@ -11,7 +11,7 @@ import java.util.Arrays;
 /**
  * 自定义SQL拦截器
  * https://ssssssss.org/magic-api/pages/senior/sql-interceptor/
- * @see org.ssssssss.magicapi.modules.db.inteceptor.SQLInterceptor
+ * @see SQLInterceptor
  */
 public class CustomSqlInterceptor implements SQLInterceptor {
 

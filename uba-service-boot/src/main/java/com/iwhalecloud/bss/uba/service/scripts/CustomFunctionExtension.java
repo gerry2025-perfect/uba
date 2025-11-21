@@ -1,8 +1,8 @@
 package com.iwhalecloud.bss.uba.service.scripts;
 
 import org.apache.commons.lang3.math.NumberUtils;
-import org.ssssssss.script.annotation.Comment;
-import org.ssssssss.script.functions.ExtensionMethod;
+import com.iwhalecloud.bss.magic.script.annotation.Comment;
+import com.iwhalecloud.bss.magic.script.functions.ExtensionMethod;
 
 /**
  * 自定义扩展方法

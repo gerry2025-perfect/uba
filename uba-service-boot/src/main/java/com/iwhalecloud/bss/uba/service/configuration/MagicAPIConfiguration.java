@@ -1,6 +1,5 @@
 package com.iwhalecloud.bss.uba.service.configuration;
 
-import com.iwhalecloud.bss.uba.service.aspect.MagicScriptPatcher;
 import com.iwhalecloud.bss.uba.service.interceptor.CustomRequestInterceptor;
 import com.iwhalecloud.bss.uba.service.interceptor.CustomUIAuthorizationInterceptor;
 import com.iwhalecloud.bss.uba.service.provider.*;
@@ -10,25 +9,19 @@ import com.iwhalecloud.bss.uba.service.scripts.CustomModule;
 import com.iwhalecloud.bss.uba.service.web.MagicExtController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.http.MediaType;
-import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
-import org.ssssssss.magicapi.core.config.MagicAPIProperties;
-import org.ssssssss.magicapi.core.config.MagicConfiguration;
-import org.ssssssss.magicapi.datasource.model.MagicDynamicDataSource;
-import org.ssssssss.magicapi.modules.db.provider.PageProvider;
-import org.ssssssss.magicapi.spring.boot.starter.MagicModuleConfiguration;
-import org.ssssssss.magicapi.utils.Mapping;
+import com.iwhalecloud.bss.magic.magicapi.core.config.MagicAPIProperties;
+import com.iwhalecloud.bss.magic.magicapi.core.config.MagicConfiguration;
+import com.iwhalecloud.bss.magic.magicapi.datasource.model.MagicDynamicDataSource;
+import com.iwhalecloud.bss.magic.magicapi.modules.db.provider.PageProvider;
+import com.iwhalecloud.bss.magic.magicapi.spring.boot.starter.MagicModuleConfiguration;
+import com.iwhalecloud.bss.magic.magicapi.utils.Mapping;
 
 import javax.sql.DataSource;
-import java.nio.charset.StandardCharsets;
-import java.util.Collections;
 
 /**
  * magic-api 配置类
@@ -53,7 +46,7 @@ public class MagicAPIConfiguration {
 	/**
 	 * 配置多数据源
 	 *
-	 * @see org.ssssssss.magicapi.datasource.model.MagicDynamicDataSource
+	 * @see MagicDynamicDataSource
 	 */
 	@Bean
 	public MagicDynamicDataSource magicDynamicDataSource(DataSource dataSource) {

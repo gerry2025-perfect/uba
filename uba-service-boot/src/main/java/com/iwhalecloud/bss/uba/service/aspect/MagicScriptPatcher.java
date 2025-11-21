@@ -16,7 +16,7 @@ public class MagicScriptPatcher {
         }
         try {
             ClassPool pool = ClassPool.getDefault();
-            CtClass ctClass = pool.get("org.ssssssss.script.MagicScript");
+            CtClass ctClass = pool.get("com.iwhalecloud.bss.magic.script.MagicScript");
 
             // 确保类只被修改一次
             if (ctClass.isFrozen()) {
@@ -24,7 +24,7 @@ public class MagicScriptPatcher {
                 return;
             }
 
-            CtMethod executeMethod = ctClass.getDeclaredMethod("execute", new CtClass[]{pool.get("org.ssssssss.script.MagicScriptContext")});
+            CtMethod executeMethod = ctClass.getDeclaredMethod("execute", new CtClass[]{pool.get("com.iwhalecloud.bss.magic.script.MagicScriptContext")});
 
             // 在方法开始时插入代码
             executeMethod.insertBefore("{\n    System.out.println(\"Entering MagicScript.execute...\");\n}");

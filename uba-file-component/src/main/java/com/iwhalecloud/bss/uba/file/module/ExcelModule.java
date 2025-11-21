@@ -5,11 +5,11 @@ import com.iwhalecloud.bss.uba.file.excel.IFileOperator;
 import com.iwhalecloud.bss.uba.file.excel.PoiExcelOperator;
 import com.ztesoft.zsmart.core.log.ZSmartLogger;
 import org.springframework.stereotype.Component;
-import org.ssssssss.magicapi.core.annotation.MagicModule;
-import org.ssssssss.magicapi.modules.DynamicModule;
-import org.ssssssss.script.MagicScriptContext;
-import org.ssssssss.script.annotation.Comment;
-import org.ssssssss.script.functions.DynamicAttribute;
+import com.iwhalecloud.bss.magic.magicapi.core.annotation.MagicModule;
+import com.iwhalecloud.bss.magic.magicapi.modules.DynamicModule;
+import com.iwhalecloud.bss.magic.script.MagicScriptContext;
+import com.iwhalecloud.bss.magic.script.annotation.Comment;
+import com.iwhalecloud.bss.magic.script.functions.DynamicAttribute;
 
 import java.io.IOException;
 import java.io.InputStream;
