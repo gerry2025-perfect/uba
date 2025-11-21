@@ -62,11 +62,11 @@
         </dependency>
 
         <dependency>
-            <groupId>org.ssssssss</groupId>
+            <groupId>com.iwhalecloud.bss.magic</groupId>
             <artifactId>magic-script</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.ssssssss</groupId>
+            <groupId>com.iwhalecloud.bss.magic</groupId>
             <artifactId>magic-api-spring-boot-starter</artifactId>
         </dependency>
         <dependency>

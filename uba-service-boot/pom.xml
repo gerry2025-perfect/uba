@@ -34,7 +34,7 @@
             <version>9.3-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.ssssssss</groupId>
+            <groupId>com.iwhalecloud.bss.magic</groupId>
             <artifactId>magic-api-plugin-task</artifactId>
             <version>2.2.1</version>
         </dependency>

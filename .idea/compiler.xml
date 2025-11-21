@@ -55,6 +55,7 @@
       <module name="uba-common" options="-parameters" />
       <module name="uba-file-component" options="-parameters" />
       <module name="uba-mq-component" options="-parameters" />
+      <module name="uba-parent" options="-parameters" />
       <module name="uba-plugin-component" options="-parameters" />
       <module name="uba-rest-component" options="-parameters" />
       <module name="uba-service-boot" options="-parameters" />

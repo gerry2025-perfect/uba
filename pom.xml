@@ -32,12 +32,12 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.ssssssss</groupId>
+                <groupId>com.iwhalecloud.bss.magic</groupId>
                 <artifactId>magic-script</artifactId>
                 <version>${magic-script.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.ssssssss</groupId>
+                <groupId>com.iwhalecloud.bss.magic</groupId>
                 <artifactId>magic-api-spring-boot-starter</artifactId>
                 <version>${magic-api.version}</version>
             </dependency>
@@ -48,5 +48,18 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <!--Compiler-->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
