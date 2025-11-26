@@ -9,6 +9,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.core.env.PropertyResolver;
 import com.iwhalecloud.bss.magic.magicapi.core.service.MagicAPIService;
 
@@ -16,16 +17,18 @@ import com.iwhalecloud.bss.magic.magicapi.core.service.MagicAPIService;
 public class CommonConfiguration implements InitializingBean {
 
     private final PropertyResolver propertyResolver;
+    private final Environment envrionment;
 
-    public CommonConfiguration(PropertyResolver propertyResolver, ApplicationContext applicationContext) {
+    public CommonConfiguration(PropertyResolver propertyResolver, Environment environment, ApplicationContext applicationContext) {
         this.propertyResolver = propertyResolver;
+        this.envrionment = environment;
         SpringHolder.setApplicationContext(applicationContext);
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
         //将spring容器上下文中的properties配置获取信息放入到Holder类，确保后续能通过静态方法获取
-        PropertyHolder.setPropertyResolver(propertyResolver);
+        PropertyHolder.setPropertyResolver(propertyResolver, envrionment);
     }
 
     @Bean

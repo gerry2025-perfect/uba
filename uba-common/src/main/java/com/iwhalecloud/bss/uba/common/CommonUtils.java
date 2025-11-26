@@ -6,6 +6,7 @@ import com.alibaba.fastjson2.reader.ObjectReaderProvider;
 import com.alibaba.fastjson2.writer.ObjectWriter;
 import com.iwhalecloud.bss.uba.common.exception.ExceptionDefine;
 import com.iwhalecloud.bss.uba.common.exception.UbaException;
+import com.iwhalecloud.bss.uba.common.prop.PropertyHolder;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -14,6 +15,7 @@ import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
@@ -23,6 +25,9 @@ import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.function.Function;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CommonUtils {
 
@@ -486,15 +491,39 @@ public class CommonUtils {
             return filePath;
         }
 
-        if (!rootDir.endsWith("/")) {
-            rootDir += "/";
+        if (!rootDir.endsWith(File.separator)) {
+            rootDir += File.separator;
         }
 
-        if (filePath.startsWith("/")) {
+        if (filePath.startsWith(File.separator)) {
             filePath = filePath.substring(1);
         }
 
         return rootDir + filePath;
+    }
+
+    /**
+     * 对字符串做占位符替换，替换的信息来源于注入方法
+     * */
+    public static String[] replaceStr(Pattern pattern, String str, Function<String, String> sourceFun){
+        Matcher matcher = pattern.matcher(str);
+        StringBuilder sb = new StringBuilder();
+        StringBuilder replaceSb = new StringBuilder();
+        while (matcher.find()) {
+            String key = matcher.group(1);
+            //待替换的信息从function上获取
+            String value = sourceFun.apply(key); //PropertyHolder.getProp(key);
+            if (value != null) {
+                matcher.appendReplacement(sb, Matcher.quoteReplacement(value));
+                replaceSb.append(matcher.group(0)).append(" --> ").append(value);
+            } else {
+                matcher.appendReplacement(sb, Matcher.quoteReplacement(matcher.group(0)));
+                replaceSb.append(matcher.group(0)).append(" --> replace fail , parameter is not exists");
+            }
+            replaceSb.append("\r\n");
+        }
+        matcher.appendTail(sb);
+        return new String[]{sb.toString(), replaceSb.toString()};
     }
 
 }

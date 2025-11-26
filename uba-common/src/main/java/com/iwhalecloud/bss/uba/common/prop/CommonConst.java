@@ -1,5 +1,7 @@
 package com.iwhalecloud.bss.uba.common.prop;
 
+import java.util.regex.Pattern;
+
 /**
  * 定义整个模块层面的常量
  * */
@@ -18,20 +20,14 @@ public class CommonConst {
     public static String dubboAppNameKey = APP_CODE + ".dubbo.app.name";
     /**配置项key：dubbo QOS端口*/
     public static String dubboQosPortKey = APP_CODE + ".dubbo.qos.port";
-    /**配置项key：dubbo对应的zk地址*/
-    public static String dubboAddressKey = ".dubbo.zk.address";
-    /**配置项key：dubbo超时时间*/
-    public static String dubboTimeoutKey = ".dubbo.timeout.time";
-    /**配置项key：dubbo超时时间*/
-    public static String dubboGroupKey = ".dubbo.group.name";
     /**配置项key：默认dubbo服务器code*/
     public static String dubboDefaultServerCode = "default";
     /**配置项key：默认MQ服务器code*/
-    public static String mqDefaultServerCode = "default_mq";
+    public static String mqDefaultServerCode = "default";
     /**配置项key：默认file配置*/
-    public static String fileDefaultCode = "default_file";
+    public static String fileDefaultCode = "default";
     /**配置项key：默认restful站点code*/
-    public static String restDefaultSiteCode = "default_rest";
+    public static String restDefaultSiteCode = "default";
     /**配置项key：默认dubbo服务器code*/
     public static String mqDefaultAddrKey = "ftf.mq.namesrv-addr";
 
@@ -39,5 +35,8 @@ public class CommonConst {
     public static String mqConsumerNameKey = APP_CODE + ".mq.consumer.name";
     /**配置项key：MQ生产者名称*/
     public static String mqProviderNameKey = APP_CODE + ".mq.provider.name";
+
+    /**参数替换的正则表达式*/
+    public static Pattern PATTERN = Pattern.compile("\\$\\{([^}]+)}");
 
 }

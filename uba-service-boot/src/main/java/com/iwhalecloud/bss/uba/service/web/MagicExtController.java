@@ -2,6 +2,8 @@ package com.iwhalecloud.bss.uba.service.web;
 
 import com.iwhalecloud.bss.uba.common.CommonUtils;
 import com.iwhalecloud.bss.uba.common.dubbo.DubboMetadataFetcher;
+import com.iwhalecloud.bss.uba.common.magic.UbaMagicResourceService;
+import com.iwhalecloud.bss.uba.common.prop.PropertyHolder;
 import com.iwhalecloud.bss.uba.file.magic.resource.FileInfo;
 import com.iwhalecloud.bss.uba.file.operator.FileOperatorFactory;
 import com.iwhalecloud.bss.uba.file.operator.IFileOperator;
@@ -34,9 +36,12 @@ public class MagicExtController  extends MagicController implements MagicExcepti
     @GetMapping("/resource/file/{id}/detail")
     @ResponseBody
     public JsonBean<MagicEntity> detail(@PathVariable("id") String id, MagicHttpServletRequest request) {
-        MagicEntity entity = MagicConfiguration.getMagicResourceService().file(id);
-        //isTrue(allowVisit(request, Authorization.VIEW, entity), PERMISSION_INVALID);
-        return new JsonBean<>(entity);
+        if(MagicConfiguration.getMagicResourceService() instanceof UbaMagicResourceService ubaMagicResourceService){
+            return new JsonBean<>(ubaMagicResourceService.file(id, true));
+        }else {
+            return new JsonBean<>(MagicConfiguration.getMagicResourceService().file(id));
+            //isTrue(allowVisit(request, Authorization.VIEW, entity), PERMISSION_INVALID);
+        }
     }
 
     /**刷新dubbo下的api信息*/
@@ -213,7 +218,7 @@ public class MagicExtController  extends MagicController implements MagicExcepti
         }
     }
 
-    @GetMapping("/resource/file/{id}/sub")
+    @PostMapping("/resource/file/{id}/sub")
     @ResponseBody
     public JsonBean<Map<String,List<String>>> queryFileStruct(@PathVariable("id") String id, MagicHttpServletRequest request) throws IOException {
         MagicEntity entity = MagicConfiguration.getMagicResourceService().file(id);
@@ -229,6 +234,13 @@ public class MagicExtController  extends MagicController implements MagicExcepti
         }else{
             return new JsonBean<>(-1, String.format("save fail: current file [%s] is not File resource", id));
         }
+    }
+
+    @GetMapping("/env/parameter")
+    @ResponseBody
+    public JsonBean<Map<String,String>> parameterList(MagicHttpServletRequest request){
+        String prefix = request.getParameterValues("prefix")==null? null : String.valueOf(request.getParameterValues("prefix")[0]);
+        return new JsonBean<>(PropertyHolder.getProperties(prefix));
     }
 
 }

@@ -1,5 +1,11 @@
 package com.iwhalecloud.bss.uba.service.configuration;
 
+import com.iwhalecloud.bss.magic.magicapi.core.model.MagicEntity;
+import com.iwhalecloud.bss.magic.magicapi.core.resource.Resource;
+import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceService;
+import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceStorage;
+import com.iwhalecloud.bss.uba.common.magic.UbaDatasourceInfoMagicResourceStorage;
+import com.iwhalecloud.bss.uba.common.magic.UbaMagicResourceService;
 import com.iwhalecloud.bss.uba.service.interceptor.CustomRequestInterceptor;
 import com.iwhalecloud.bss.uba.service.interceptor.CustomUIAuthorizationInterceptor;
 import com.iwhalecloud.bss.uba.service.provider.*;
@@ -7,8 +13,11 @@ import com.iwhalecloud.bss.uba.service.scripts.CustomFunction;
 import com.iwhalecloud.bss.uba.service.scripts.CustomFunctionExtension;
 import com.iwhalecloud.bss.uba.service.scripts.CustomModule;
 import com.iwhalecloud.bss.uba.service.web.MagicExtController;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -22,6 +31,7 @@ import com.iwhalecloud.bss.magic.magicapi.spring.boot.starter.MagicModuleConfigu
 import com.iwhalecloud.bss.magic.magicapi.utils.Mapping;
 
 import javax.sql.DataSource;
+import java.util.List;
 
 /**
  * magic-api 配置类
@@ -34,13 +44,19 @@ import javax.sql.DataSource;
 public class MagicAPIConfiguration {
 
 	private final MagicAPIProperties properties;
+	private final ObjectProvider<List<MagicResourceStorage<? extends MagicEntity>>> magicResourceStoragesProvider;
+	private final ApplicationContext applicationContext;
 
 	@Autowired
 	@Lazy
 	private RequestMappingHandlerMapping requestMappingHandlerMapping;
 
-	public MagicAPIConfiguration(MagicAPIProperties properties) {
+	public MagicAPIConfiguration(MagicAPIProperties properties,
+								 ObjectProvider<List<MagicResourceStorage<? extends MagicEntity>>> magicResourceStoragesProvider,
+								 ApplicationContext applicationContext) {
 		this.properties = properties;
+		this.magicResourceStoragesProvider = magicResourceStoragesProvider;
+		this.applicationContext = applicationContext;
 	}
 
 	/**
@@ -66,6 +82,18 @@ public class MagicAPIConfiguration {
 			mapping.registerController(new MagicExtController(configuration));
 		}
 		return magicExtController;
+	}
+
+	@Bean
+	@ConditionalOnMissingBean
+	public UbaDatasourceInfoMagicResourceStorage dataSourceInfoMagicResourceStorage() {
+		return new UbaDatasourceInfoMagicResourceStorage();
+	}
+
+	@Bean
+	@ConditionalOnMissingBean
+	public MagicResourceService magicResourceService(Resource workspace) {
+		return new UbaMagicResourceService(workspace, magicResourceStoragesProvider.getObject(), applicationContext);
 	}
 
 

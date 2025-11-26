@@ -53,7 +53,7 @@ public class FileModule implements DynamicAttribute<FileModule, FileModule>,Dyna
             String fileKey = context.getString(CommonConst.fileDefaultCode);
             if(fileKey!=null && !operators.containsKey(fileKey)){
                 fileInfo = operators.get(fileKey);
-            }else if(!operators.containsKey(CommonConst.fileDefaultCode)){
+            }else if(operators.containsKey(CommonConst.fileDefaultCode)){
                 fileInfo = operators.get(CommonConst.fileDefaultCode);
             }
             if(fileInfo==null){

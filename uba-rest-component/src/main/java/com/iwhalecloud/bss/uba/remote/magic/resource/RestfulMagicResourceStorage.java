@@ -1,18 +1,17 @@
 package com.iwhalecloud.bss.uba.remote.magic.resource;
 
-import com.iwhalecloud.bss.magic.magicapi.core.config.JsonCodeConstants;
 import com.iwhalecloud.bss.magic.magicapi.core.model.JsonCode;
 import com.iwhalecloud.bss.magic.magicapi.core.model.MagicEntity;
 import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceService;
-import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceStorage;
 import com.iwhalecloud.bss.magic.magicapi.utils.IoUtils;
 import com.iwhalecloud.bss.magic.magicapi.utils.JsonUtils;
+import com.iwhalecloud.bss.uba.common.magic.PlaceholderResourceStorage;
 
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class RestfulMagicResourceStorage implements MagicResourceStorage<RestSiteInfo>, JsonCodeConstants {
+public class RestfulMagicResourceStorage extends PlaceholderResourceStorage<RestSiteInfo> {
 
     private MagicResourceService magicResourceService;
 
@@ -76,10 +75,10 @@ public class RestfulMagicResourceStorage implements MagicResourceStorage<RestSit
         this.magicResourceService = magicResourceService;
     }
 
-    @Override
+    /*@Override
     public RestSiteInfo read(byte[] bytes) {
         return JsonUtils.readValue(bytes, RestSiteInfo.class);
-    }
+    }*/
 
     @Override
     public byte[] write(MagicEntity entity) {

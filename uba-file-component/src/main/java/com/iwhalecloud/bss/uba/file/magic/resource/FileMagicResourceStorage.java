@@ -1,11 +1,10 @@
 package com.iwhalecloud.bss.uba.file.magic.resource;
 
+import com.iwhalecloud.bss.uba.common.magic.PlaceholderResourceStorage;
 import org.springframework.stereotype.Component;
-import com.iwhalecloud.bss.magic.magicapi.core.config.JsonCodeConstants;
 import com.iwhalecloud.bss.magic.magicapi.core.model.JsonCode;
 import com.iwhalecloud.bss.magic.magicapi.core.model.MagicEntity;
 import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceService;
-import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceStorage;
 import com.iwhalecloud.bss.magic.magicapi.utils.IoUtils;
 import com.iwhalecloud.bss.magic.magicapi.utils.JsonUtils;
 
@@ -13,7 +12,7 @@ import java.util.Objects;
 
 @Component
 /**获取的信息，就是json文件中groupId=file:0*/
-public class FileMagicResourceStorage implements MagicResourceStorage<FileInfo>, JsonCodeConstants {
+public class FileMagicResourceStorage extends PlaceholderResourceStorage<FileInfo> {
 
 	private MagicResourceService magicResourceService;
 
@@ -69,10 +68,10 @@ public class FileMagicResourceStorage implements MagicResourceStorage<FileInfo>,
 		this.magicResourceService = magicResourceService;
 	}
 
-	@Override
+	/*@Override
 	public FileInfo read(byte[] bytes) {
 		return JsonUtils.readValue(bytes, FileInfo.class);
-	}
+	}*/
 
 	@Override
 	public byte[] write(MagicEntity entity) {

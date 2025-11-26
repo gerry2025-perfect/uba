@@ -1,17 +1,16 @@
 package com.iwhalecloud.bss.uba.remote.magic.resource;
 
-import com.iwhalecloud.bss.magic.magicapi.core.config.JsonCodeConstants;
 import com.iwhalecloud.bss.magic.magicapi.core.model.JsonCode;
 import com.iwhalecloud.bss.magic.magicapi.core.model.MagicEntity;
 import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceService;
-import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceStorage;
 import com.iwhalecloud.bss.magic.magicapi.utils.IoUtils;
 import com.iwhalecloud.bss.magic.magicapi.utils.JsonUtils;
+import com.iwhalecloud.bss.uba.common.magic.PlaceholderResourceStorage;
 
 import java.util.Objects;
 
 /**获取的信息，就是json文件中groupId=dubbo:0*/
-public class DubboMagicResourceStorage implements MagicResourceStorage<DubboInfo>, JsonCodeConstants {
+public class DubboMagicResourceStorage extends PlaceholderResourceStorage<DubboInfo> {
 
 	private MagicResourceService magicResourceService;
 
@@ -67,10 +66,10 @@ public class DubboMagicResourceStorage implements MagicResourceStorage<DubboInfo
 		this.magicResourceService = magicResourceService;
 	}
 
-	@Override
+	/*@Override
 	public DubboInfo read(byte[] bytes) {
 		return JsonUtils.readValue(bytes, DubboInfo.class);
-	}
+	}*/
 
 	@Override
 	public byte[] write(MagicEntity entity) {

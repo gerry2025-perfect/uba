@@ -36,7 +36,12 @@
         <dependency>
             <groupId>com.iwhalecloud.bss.magic</groupId>
             <artifactId>magic-api-plugin-task</artifactId>
-            <version>2.2.1</version>
+            <version>${magic-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.iwhalecloud.bss.magic</groupId>
+            <artifactId>magic-api-plugin-cluster</artifactId>
+            <version>${magic-api.version}</version>
         </dependency>
         <!--<dependency>
             <groupId>com.iwhalecloud.easycode</groupId>

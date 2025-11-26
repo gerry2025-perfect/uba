@@ -1,17 +1,16 @@
 package com.iwhalecloud.bss.uba.mq.magic.resource;
 
-import com.iwhalecloud.bss.magic.magicapi.core.config.JsonCodeConstants;
 import com.iwhalecloud.bss.magic.magicapi.core.model.JsonCode;
 import com.iwhalecloud.bss.magic.magicapi.core.model.MagicEntity;
 import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceService;
-import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceStorage;
 import com.iwhalecloud.bss.magic.magicapi.utils.IoUtils;
 import com.iwhalecloud.bss.magic.magicapi.utils.JsonUtils;
+import com.iwhalecloud.bss.uba.common.magic.PlaceholderResourceStorage;
 
 import java.util.Objects;
 
 /**获取的信息，就是json文件中groupId=mq:0*/
-public class MessageQueueMagicResourceStorage implements MagicResourceStorage<MessageQueueInfo>, JsonCodeConstants {
+public class MessageQueueMagicResourceStorage extends PlaceholderResourceStorage<MessageQueueInfo> {
 
 	private MagicResourceService magicResourceService;
 
@@ -67,10 +66,10 @@ public class MessageQueueMagicResourceStorage implements MagicResourceStorage<Me
 		this.magicResourceService = magicResourceService;
 	}
 
-	@Override
+	/*@Override
 	public MessageQueueInfo read(byte[] bytes) {
 		return JsonUtils.readValue(bytes, MessageQueueInfo.class);
-	}
+	}*/
 
 	@Override
 	public byte[] write(MagicEntity entity) {
