@@ -125,7 +125,7 @@ public class CommonUtils {
                 return JSON.parseObject(jsonStr, respClass);
             }
         } catch (Exception e) {
-            throw new RuntimeException("JSON 反序列化失败", e);
+            throw new RuntimeException("JSON deserialization failed", e);
         }
     }
 
@@ -297,7 +297,7 @@ public class CommonUtils {
         try {
             return getReadOrWriteMethods(clazz, name, false);
         } catch (IntrospectionException var3) {
-            throw new RuntimeException(String.format("在类[%s]中获取属性[%s]读取方法异常，原因：", clazz, name), var3);
+            throw new RuntimeException(String.format("Exception occurred while retrieving property [%s] in class [%s], reason:", clazz, name), var3);
         }
     }
 

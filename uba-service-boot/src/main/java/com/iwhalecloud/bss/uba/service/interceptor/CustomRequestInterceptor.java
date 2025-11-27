@@ -28,20 +28,20 @@ public class CustomRequestInterceptor implements RequestInterceptor {
 	@Override
 	public Object preHandle(ApiInfo info, MagicScriptContext context, MagicHttpServletRequest request, MagicHttpServletResponse response) throws Exception {
 		Object user = null; // = XXXUtils.getUser(request);
-		logger.info("{} 请求接口：{}", user, info.getName());
+		logger.info("{} Request interface: {}", user, info.getName());
 		// 接口选项配置了需要登录
 		if ("true".equals(info.getOptionValue(Options.REQUIRE_LOGIN))) {
 			if (user == null) {
-				return new JsonBean<>(401, "用户未登录");
+				return new JsonBean<>(401, "User not logged in");
 			}
 		}
 		String role = info.getOptionValue(Options.ROLE);
 		if (StringUtils.isNotBlank(role)/* && user.hasRole(role)*/) {
-			return new JsonBean<>(403, "用户权限不足");
+			return new JsonBean<>(403, "Insufficient user permissions");
 		}
 		String permission = info.getOptionValue(Options.PERMISSION);
 		if (StringUtils.isNotBlank(permission)/* && user.hasPermission(permission)*/) {
-			return new JsonBean<>(403, "用户权限不足");
+			return new JsonBean<>(403, "Insufficient user permissions");
 		}
 		return null;
 	}
@@ -54,7 +54,7 @@ public class CustomRequestInterceptor implements RequestInterceptor {
 	 */
 	@Override
 	public Object postHandle(ApiInfo info, MagicScriptContext context, Object value, MagicHttpServletRequest request, MagicHttpServletResponse response) throws Exception {
-		logger.info("{} 执行完毕，返回结果:{}", info.getName(), value);
+		logger.info("{} Execution completed, return result: {}", info.getName(), value);
 		return null;
 	}
 }

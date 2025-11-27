@@ -66,7 +66,7 @@ public class DubboMetadataFetcher implements AutoCloseable {
         List<MethodInfo> methodList = new ArrayList<>();
         groupName = getGroupName(groupName);
         String providersPath = String.format("%s/%s/providers", groupName, serviceName);
-        logger.debug("查询Path：" + providersPath);
+        logger.debug("Query Path:" + providersPath);
         if (zkClient.checkExists().forPath(providersPath) != null) {
             List<String> providerNodes = zkClient.getChildren().forPath(providersPath);
             for (String node : providerNodes) {
@@ -77,7 +77,7 @@ public class DubboMetadataFetcher implements AutoCloseable {
                 String encodedUrl = node ; //new String(zkClient.getData().forPath(providersPath + "/" + node));
                 String urlStr = URL.decode(encodedUrl);
                 URL url = URL.valueOf(urlStr);
-                logger.debug("URL地址：" + urlStr);
+                logger.debug("URL address:" + urlStr);
                 // 解析 methods 参数
                 String methodsParam = url.getParameter("methods");
                 if (methodsParam != null && !methodsParam.isEmpty()) {
@@ -155,15 +155,15 @@ public class DubboMetadataFetcher implements AutoCloseable {
             String serviceName = "com.iwhalecloud.bss.cpc.service.api.inf.agreement.AgreementQueryService";
             Map<String, List<MethodInfo>> serviceMethods = fetcher.getServiceMethods("CPC_OUT");
             serviceMethods.entrySet().forEach(entry -> {
-                System.out.println("服务："+entry.getKey());
+                System.out.println("Service:"+entry.getKey());
                 entry.getValue().stream().forEach(methodEntry -> {
-                    System.out.println("方法：" + methodEntry);
+                    System.out.println("Method:" + methodEntry);
                 });
             });
             /*List<MethodInfo> methods = fetcher.getServiceMethods("CPC_OUT", serviceName);
-            System.out.println("服务 " + serviceName + " 的方法列表：");
+            System.out.println("Service " + serviceName + "List of methods:");
             methods.forEach((methodInfo) -> {
-                System.out.println("\n方法: " + methodInfo);
+                System.out.println("\nMethod: " + methodInfo);
             });*/
         } catch (Exception e) {
             e.printStackTrace();

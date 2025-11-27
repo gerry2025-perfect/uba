@@ -24,8 +24,8 @@ import com.iwhalecloud.bss.magic.script.annotation.Comment;
 @MagicModule("custom")
 public class CustomModule {
 
-	@Comment("方法名的注释(用于提示)")
-	public void println(@Comment(name = "value", value = "参数名的提示(用于提示)")String value) {
+	@Comment("Method name comment (for hints)")
+	public void println(@Comment(name = "value", value = "Parameter name hint (for hints)")String value) {
 		System.out.println(value);
 	}
 }

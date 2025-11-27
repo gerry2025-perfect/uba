@@ -25,7 +25,7 @@ public class PropertyHolder {
             // 注意：Spring 会按照优先级顺序遍历这些 Source
             for (PropertySource<?> propertySource : configurableEnvironment.getPropertySources()) {
 
-                // 3. 我们只能遍历 "可枚举" 的源 (EnumerablePropertySource)
+                // 3. 我们只能遍历 "Enumerable" 的源 (EnumerablePropertySource)
                 // 绝大多数源（Map, Properties, yml, 环境变量）都继承此类
                 if (propertySource instanceof EnumerablePropertySource) {
 

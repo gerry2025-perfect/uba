@@ -50,7 +50,7 @@ public class SimpleAuthorizationInterceptor implements AuthorizationInterceptor 
 
 
     public SimpleAuthorizationInterceptor() {
-        log.info("已启用多用户登录扩展，如需关闭请magic-api.ext.auth.enable=false");
+        log.info("Multi-user login extension is enabled. To disable it, please set magic-api.ext.auth.enable=false");
     }
 
     /**
@@ -73,9 +73,9 @@ public class SimpleAuthorizationInterceptor implements AuthorizationInterceptor 
                 return magicUser;
             }
         } catch (Exception e) {
-            log.error("token无效,请重新登录,如果还有问题，可手动清除localStorage中magic-token");
+            log.error("Invalid token, please log in again. If you still have problems, you can manually clear the magic-token in localStorage");
         }
-        throw new MagicLoginException("token无效");
+        throw new MagicLoginException("Invalid token");
     }
 
     @Override
@@ -84,7 +84,7 @@ public class SimpleAuthorizationInterceptor implements AuthorizationInterceptor 
         if (users.containsKey(username) && users.get(username).equals(password)) {
             return new MagicUser(username, username, getToken(username, password));
         }
-        throw new MagicLoginException("用户名或密码不正确");
+        throw new MagicLoginException("Incorrect username or password");
     }
 
     /**
@@ -108,10 +108,10 @@ public class SimpleAuthorizationInterceptor implements AuthorizationInterceptor 
                 b[i] += encryIndex;
             }
             token = new String(b);
-            log.debug("本次登录token:[{}]", token);
+            log.debug("Login token for this session: [{}]", token);
         } catch (UnsupportedEncodingException e) {
-            log.info("生成token失败,可能字符集不合法。[{}={}]",username,password);
-            throw new MagicLoginException("用户名或密码配置不合法");
+            log.info("Failed to generate token, possibly due to an invalid character set. [{}={}]",username,password);
+            throw new MagicLoginException("Invalid username or password configuration");
         }
         return token;
     }
@@ -124,8 +124,8 @@ public class SimpleAuthorizationInterceptor implements AuthorizationInterceptor 
             }
             return new String(b).split(";");
         } catch (Exception e) {
-            log.error("根据token:[{}]获取用户信息失败", token, e);
-            throw new MagicLoginException("用户名或密码不正确");
+            log.error("Failed to retrieve user information based on token: [{}]", token, e);
+            throw new MagicLoginException("Incorrect username or password");
         }
     }
 

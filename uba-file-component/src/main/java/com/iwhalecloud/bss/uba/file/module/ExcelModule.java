@@ -32,7 +32,7 @@ public class ExcelModule implements DynamicAttribute<ExcelModule, ExcelModule>, 
         return new ExcelModule();
     }
 
-    @Comment("读取excel文件的全量数据，文件内容通过数据流表达")
+    @Comment("Reads the full data of an Excel file, the file content is expressed through a data stream")
     public Map<String, List<Map<String,Object>>> read(InputStream inputStream, String fileName){
         try {
             return getFileOperator(fileName).read(inputStream, fileName);
@@ -42,7 +42,7 @@ public class ExcelModule implements DynamicAttribute<ExcelModule, ExcelModule>, 
         }
     }
 
-    @Comment("读取excel文件中特定sheet的数据，用sheet名称来标识读取的sheet，文件内容通过数据流表达")
+    @Comment("Reads data from a specific sheet in an Excel file, using the sheet name to identify the read sheet, the file content is expressed through a data stream")
     public List<Map<String, Object>> read(InputStream inputStream, String fileName, String sheetName){
         try {
             return getFileOperator(fileName).read(inputStream, fileName, sheetName);
@@ -52,7 +52,7 @@ public class ExcelModule implements DynamicAttribute<ExcelModule, ExcelModule>, 
         }
     }
 
-    @Comment("读取excel文件中特定sheet的数据，用sheet 序列号来标识读取的sheet，文件内容通过数据流表达")
+    @Comment("Reads data from a specific sheet in an Excel file, using the sheet sequence number to identify the read sheet, the file content is expressed through a data stream")
     public List<Map<String, Object>> read(InputStream inputStream, String fileName, Integer sheetIdx) {
         try {
             return getFileOperator(fileName).read(inputStream, fileName, sheetIdx);
@@ -62,7 +62,7 @@ public class ExcelModule implements DynamicAttribute<ExcelModule, ExcelModule>, 
         }
     }
 
-    @Comment("读取excel文件的全量数据，文件内容通过字节数组表达")
+    @Comment("Reads the entire data from an Excel file; the file content is represented by a byte array")
     public Map<String, List<Map<String,Object>>> read(byte[] fileContent, String fileName){
         try {
             return getFileOperator(fileName).read(fileContent, fileName);
@@ -72,7 +72,7 @@ public class ExcelModule implements DynamicAttribute<ExcelModule, ExcelModule>, 
         }
     }
 
-    @Comment("读取excel文件中特定sheet的数据，用sheet名称来标识读取的sheet，文件内容通过字节数组表达")
+    @Comment("Reads data from a specific sheet in an Excel file, identifying the sheet by its name; the file content is represented by a byte array")
     public List<Map<String, Object>> read(byte[] fileContent, String fileName, String sheetName){
         try {
             return getFileOperator(fileName).read(fileContent, fileName, sheetName);
@@ -82,7 +82,7 @@ public class ExcelModule implements DynamicAttribute<ExcelModule, ExcelModule>, 
         }
     }
 
-    @Comment("读取excel文件中特定sheet的数据，用sheet 序列号来标识读取的sheet，文件内容通过字节数组表达")
+    @Comment("Reads data from a specific sheet in an Excel file, identifying the sheet by its sequence number; the file content is represented by a byte array")
     public List<Map<String, Object>> read(byte[] fileContent, String fileName, Integer sheetIdx) {
         try {
             return getFileOperator(fileName).read(fileContent, fileName, sheetIdx);
@@ -92,7 +92,7 @@ public class ExcelModule implements DynamicAttribute<ExcelModule, ExcelModule>, 
         }
     }
 
-    @Comment("创建excel文件，文件内容通过字节数组表达")
+    @Comment("Creates an Excel file; the file content is represented by a byte array")
     public byte[] create(String fileName, Map<String, List<Map<String,Object>>> dataList) {
         try {
             return getFileOperator(fileName).create(fileName, dataList);
@@ -102,7 +102,7 @@ public class ExcelModule implements DynamicAttribute<ExcelModule, ExcelModule>, 
         }
     }
 
-    @Comment("向excel文件中追加数据，文件内容通过数据流表达")
+    @Comment("Appends data to an Excel file; the file content is represented by a data stream")
     public byte[] append(InputStream inputStream, String fileName, Map<String, List<Map<String,Object>>> dataList) {
         try {
             return getFileOperator(fileName).append(inputStream, fileName, dataList);
@@ -112,7 +112,7 @@ public class ExcelModule implements DynamicAttribute<ExcelModule, ExcelModule>, 
         }
     }
 
-    @Comment("向excel文件中追加数据，文件内容通过字节数组表达")
+    @Comment("Appends data to an Excel file; the file content is represented by a byte array")
     public byte[] append(byte[] fileContent, String fileName, Map<String, List<Map<String,Object>>> dataList) {
         try {
             return getFileOperator(fileName).append(fileContent, fileName, dataList);

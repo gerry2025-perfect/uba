@@ -74,7 +74,7 @@ public class AutoReleaser {
                 break;
             } catch (Exception e) {
                 // 防止异常导致线程退出
-                logger.error(String.format("release resource error：%s" , e.getMessage()), e);
+                logger.error(String.format("release resource error:%s" , e.getMessage()), e);
             }
         }
         logger.debug("release resource thread is stoped");

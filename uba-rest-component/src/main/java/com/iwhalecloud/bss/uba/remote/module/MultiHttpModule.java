@@ -22,15 +22,15 @@ public class MultiHttpModule extends HttpModule {
         super(template, url);
     }
 
-    @Comment("创建连接")
-    public MultiHttpModule connect(@Comment(name = "url", value = "目标URL") String url) {
+    @Comment("Create Connection")
+    public MultiHttpModule connect(@Comment(name = "url", value = "Target URL") String url) {
         return new MultiHttpModule(template, url);
     }
 
-    @Comment("设置form参数中文件名和文件内容，如果fileKey为null会默认设置为file")
-    public HttpModule file(@Comment(name = "fileName", value = "文件名称") String fileName,
-                           @Comment(name = "fileKey", value = "文件在服务器端的参数名") String fileKey,
-                           @Comment(name = "fileContent", value = "文件内容") byte[] fileContent) {
+    @Comment("Sets the filename and file content in the form parameters. If fileKey is null, it will default to file")
+    public HttpModule file(@Comment(name = "fileName", value = "File Name") String fileName,
+                           @Comment(name = "fileKey", value = "File Parameter Name on the Server") String fileKey,
+                           @Comment(name = "fileContent", value = "File Content") byte[] fileContent) {
         if(fileKey==null || fileKey.isEmpty()){
             fileKey = "file";
         }

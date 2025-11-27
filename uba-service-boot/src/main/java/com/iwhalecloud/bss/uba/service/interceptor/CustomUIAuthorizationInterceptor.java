@@ -31,7 +31,7 @@ public class CustomUIAuthorizationInterceptor implements AuthorizationIntercepto
 	@Override
 	public MagicUser login(String username, String password) throws MagicLoginException {
 		if (!"123456".equals(password) && !"admin".equals(username)) {
-			throw new MagicLoginException("密码不正确");
+			throw new MagicLoginException("Incorrect password");
 		}
 		return new MagicUser("1", username, "token..123456");
 	}
@@ -44,7 +44,7 @@ public class CustomUIAuthorizationInterceptor implements AuthorizationIntercepto
 		if ("token..123456".equals(token)) {
 			return new MagicUser("1", "admin", "token..123456");
 		}
-		throw new MagicLoginException("token无效");
+		throw new MagicLoginException("Invalid token");
 	}
 
 	/**

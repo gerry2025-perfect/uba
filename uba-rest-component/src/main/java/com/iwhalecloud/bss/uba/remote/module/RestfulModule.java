@@ -57,52 +57,52 @@ public class RestfulModule implements DynamicAttribute<RestfulModule, RestfulMod
         return this;
     }
 
-    @Comment("GET 按方法名调用外部 REST")
-    public String get(@Comment(name = "apiCode", value = "接口方法名") String apiCode,
-                      @Comment(name = "body", value = "请求体") Map<String,Object> body,
-                      @Comment(name = "params", value = "URL 参数") Map<String, Object> params,
-                      @Comment(name = "header", value = "http header清单") Map<String, String> headers) {
+    @Comment("GET Call External REST by Method Name")
+    public String get(@Comment(name = "apiCode", value = "Interface Method Name") String apiCode,
+                      @Comment(name = "body", value = "Request Body") Map<String,Object> body,
+                      @Comment(name = "params", value = "URL Parameters") Map<String, Object> params,
+                      @Comment(name = "header", value = "HTTP Header List") Map<String, String> headers) {
         return operatorHolder.get().get(apiCode, body, params, headers);
     }
 
-    @Comment("DELETE 按方法名调用外部 REST")
-    public String delete(@Comment(name = "apiCode", value = "接口方法名") String apiCode,
-                         @Comment(name = "params", value = "URL 参数") Map<String, Object> params,
-                         @Comment(name = "header", value = "http header清单") Map<String, String> headers) {
+    @Comment("DELETE Call External REST by Method Name")
+    public String delete(@Comment(name = "apiCode", value = "Interface Method Name") String apiCode,
+                         @Comment(name = "params", value = "URL Parameters") Map<String, Object> params,
+                         @Comment(name = "header", value = "HTTP Header List") Map<String, String> headers) {
         return operatorHolder.get().delete(apiCode, params, headers);
     }
 
-    @Comment("POST 按方法名调用外部 REST（JSON 请求体）")
-    public String post(@Comment(name = "apiCode", value = "接口方法名") String apiCode,
-                       @Comment(name = "body", value = "请求体") Map<String,Object> body,
-                       @Comment(name = "params", value = "URL 参数") Map<String, Object> params,
-                       @Comment(name = "header", value = "http header清单") Map<String, String> headers) {
+    @Comment("POST Call External REST by Method Name (JSON Request Body)")
+    public String post(@Comment(name = "apiCode", value = "Interface Method Name") String apiCode,
+                       @Comment(name = "body", value = "Request Body") Map<String,Object> body,
+                       @Comment(name = "params", value = "URL Parameters") Map<String, Object> params,
+                       @Comment(name = "header", value = "HTTP Header List") Map<String, String> headers) {
         return operatorHolder.get().post(apiCode, body, params, headers);
     }
 
-    @Comment("PUT 按方法名调用外部 REST（JSON 请求体）")
-    public String put(@Comment(name = "apiCode", value = "接口方法名") String apiCode,
-                      @Comment(name = "body", value = "请求体") Map<String,Object> body,
-                      @Comment(name = "params", value = "URL 参数") Map<String, Object> params,
-                      @Comment(name = "header", value = "http header清单") Map<String, String> headers) {
+    @Comment("PUT Call External REST by Method Name (JSON Request Body)")
+    public String put(@Comment(name = "apiCode", value = "Interface Method Name") String apiCode,
+                      @Comment(name = "body", value = "Request Body") Map<String,Object> body,
+                      @Comment(name = "params", value = "URL Parameters") Map<String, Object> params,
+                      @Comment(name = "header", value = "HTTP Header List") Map<String, String> headers) {
         return operatorHolder.get().put(apiCode, body, params, headers);
     }
 
-    @Comment("PATCH 按方法名调用外部 REST（JSON 请求体）")
-    public String patch(@Comment(name = "apiCode", value = "接口方法名") String apiCode,
-                        @Comment(name = "body", value = "请求体") Map<String,Object> body,
-                        @Comment(name = "params", value = "URL 参数") Map<String, Object> params,
-                        @Comment(name = "header", value = "http header清单") Map<String, String> headers) {
+    @Comment("PATCH Call External REST by Method Name (JSON Request Body)")
+    public String patch(@Comment(name = "apiCode", value = "Interface Method Name") String apiCode,
+                        @Comment(name = "body", value = "Request Body") Map<String,Object> body,
+                        @Comment(name = "params", value = "URL Parameters") Map<String, Object> params,
+                        @Comment(name = "header", value = "HTTP Header List") Map<String, String> headers) {
         return operatorHolder.get().patch(apiCode, body, params, headers);
     }
 
-    @Comment("通用执行restful远程调用")
-    public <T> T invokeRest(@Comment(name = "apiCode", value = "接口方法名") String apiCode,
-                            @Comment(name = "params", value = "URL 参数") Map<String, Object> params,
-                            @Comment(name = "header", value = "http header清单") Map<String, String> headers,
-                            @Comment(name = "body", value = "请求体") Map<String, Object> body,
-                            @Comment(name = "contentType", value = "rest交易的内容类型") MediaType contentType,
-                            @Comment(name = "cls", value = "返回数据类型") Class<T> cls){
+    @Comment("General execution of RESTful remote call")
+    public <T> T invokeRest(@Comment(name = "apiCode", value = "Interface Method Name") String apiCode,
+                            @Comment(name = "params", value = "URL Parameters") Map<String, Object> params,
+                            @Comment(name = "header", value = "HTTP Header List") Map<String, String> headers,
+                            @Comment(name = "body", value = "Request Body") Map<String, Object> body,
+                            @Comment(name = "contentType", value = "Content type of REST transaction") MediaType contentType,
+                            @Comment(name = "cls", value = "Return data type") Class<T> cls){
         return operatorHolder.get().invoke(apiCode, null, params, headers, body, contentType, cls);
     }
 }

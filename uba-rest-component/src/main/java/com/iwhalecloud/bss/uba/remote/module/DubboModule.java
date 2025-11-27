@@ -51,26 +51,26 @@ public class DubboModule implements DynamicAttribute<DubboModule, DubboModule>,D
         return this;
     }
 
-    @Comment("使用纯泛化的方式调用，入参通过字符串指定类型、出参转换为字符串（复杂类型转换为JSON格式的字符串）")
+    @Comment("Using pure generic calling, input parameters are specified by string type, output parameters are converted to strings (complex types are converted to JSON format strings)")
     public String invokeForString(@Comment("") String interfaceName, @Comment("") String methodName, @Comment("") String[] paramTypes, @Comment("") List<Object> params){
         validate(interfaceName,methodName,paramTypes,params);
         return dubboOperator.get().invokeForString(interfaceName, methodName, paramTypes, params.toArray());
     }
 
-    @Comment("使用纯泛化的方式调用，入参通过字符串指定类型、出参转换只能是简单数据类型")
+    @Comment("Using pure generic calling, input parameters are specified by string type, output parameters can only be simple data types")
     public Object invokeForSimple(String interfaceName,String methodName, String[] paramTypes,List<Object> params){
         validate(interfaceName,methodName,paramTypes,params);
         return dubboOperator.get().invokeForSimple(interfaceName, methodName, paramTypes, params.toArray());
     }
 
-    @Comment("使用纯泛化的方式调用，入参通过字符串指定类型、出参转换不做转换，当时只能返回Map，否则报异常")
+    @Comment("Using pure generic calling, input parameters are specified by string type, output parameters are not converted, only a Map can be returned, otherwise an exception will be thrown")
     public Map invokeForMap(String interfaceName,String methodName, String[] paramTypes,List<Object> params){
         validate(interfaceName,methodName,paramTypes,params);
         return dubboOperator.get().invokeForMap(interfaceName, methodName, paramTypes, params.toArray());
     }
 
-    @Comment("使用纯泛化的方式调用，入参通过字符串指定类型、出参转换不做转换，当时只能返回List，否则报异常")
-    public List invokeForList(@Comment(name = "interfaceName", value = "接口名称") String interfaceName,
+    @Comment("Using pure generic calling, input parameters are specified by string type, output parameters are not converted, only a List can be returned, otherwise an exception will be thrown")
+    public List invokeForList(@Comment(name = "interfaceName", value = "Interface name") String interfaceName,
                               @Comment(name = "methodName", value = "methodName") String methodName,
                               @Comment(name = "paramTypes", value = "paramTypes") String[] paramTypes,
                               @Comment(name = "params", value = "params") List<Object> params){

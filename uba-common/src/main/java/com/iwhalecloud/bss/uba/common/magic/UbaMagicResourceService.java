@@ -926,7 +926,7 @@ public class UbaMagicResourceService implements MagicResourceService, JsonCodeCo
         try {
             this.read(false);
         } catch (Exception e) {
-            logger.error("启动过程中发生异常", e);
+            logger.error("Exception occurred during startup", e);
         }
     }
 }

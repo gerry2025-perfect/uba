@@ -91,7 +91,7 @@ public class FtpFileOperator implements IFileOperator, IReleasable {
             connect();
             return ftpClient.retrieveFileStream(buildFullPath(fileInfo.getRootDir(), filePath));
         } catch (IOException e) {
-            throw new RuntimeException("获取FTP文件流失败: " + filePath, e);
+            throw new RuntimeException("Failed to retrieve FTP file stream: " + filePath, e);
         }
     }
 

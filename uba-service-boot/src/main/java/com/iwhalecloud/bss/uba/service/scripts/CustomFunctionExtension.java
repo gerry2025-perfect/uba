@@ -27,7 +27,7 @@ public class CustomFunctionExtension implements ExtensionMethod {
 	 *  return '1234'.toInt();
 	 *  //return str.toInt();
 	 */
-	@Comment("将字符串转为Integer(方法名的提示)")
+	@Comment("Convert string to Integer (method name hint)")
 	public Integer toInt(String str){    // 第一个参数无需使用@Comment注解
 		return NumberUtils.toInt(str);
 	}

@@ -63,7 +63,7 @@ public class FileModule implements DynamicAttribute<FileModule, FileModule>,Dyna
         return new FileModule(newFileOperator(fileInfo), fileMagicDynamicRegistry);
     }
 
-    @Comment("读取文件内容")
+    @Comment("Reads file content")
     public byte[] getFileContent(String filePath){
         try {
             return CommonUtils.toByteArray(getFile(filePath));
@@ -73,42 +73,42 @@ public class FileModule implements DynamicAttribute<FileModule, FileModule>,Dyna
         }
     }
 
-    @Comment("读取文件流")
+    @Comment("Reads a file stream")
     public InputStream getFile(String filePath){
         return fileOperator.getFile(filePath);
     }
 
-    @Comment("文件移动，从一个文件路径移动到另外一个文件路径，文件名都在filePath上")
+    @Comment("Moves a file from one file path to another; filenames are listed in the filePath")
     public void removeTo(String sourceFilePath, String targetFilePath){
         fileOperator.removeTo(sourceFilePath, targetFilePath);
     }
 
-    @Comment("获取文件名称清单")
+    @Comment("Gets a list of file names")
     public List<String> getFileNames(String fileDir){
         return fileOperator.getFileNames(fileDir, IFileOperator.FileType.ALL);
     }
 
-    @Comment("删除文件")
+    @Comment("Deletes a file")
     public void deleteFile(String filePath){
         fileOperator.deleteFile(filePath);
     }
 
-    @Comment("上传文件")
+    @Comment("Uploads a file")
     public void writeFile(byte[] data, String filePath){
         fileOperator.writeFile(data, filePath);
     }
 
-    @Comment("新增目录")
+    @Comment("Add directory")
     public void createDir(String dirName){
         fileOperator.createDir(dirName);
     }
 
-    @Comment("校验远程文件是否存在")
+    @Comment("Check if remote file exists")
     public boolean exists(String filePath, boolean throwException){
         return fileOperator.exists(filePath, throwException);
     }
 
-    @Comment("释放连接，对于ftp、ftps和sftp可以手动释放资源，如果没有调用，最长两分钟之后系统会自动释放")
+    @Comment("Release connection. For FTP, FTPS, and SFTP, resources can be manually released. If not called, the system will automatically release them after a maximum of two minutes")
     public void disconnect(){
         fileOperator.disconnect();
     }
