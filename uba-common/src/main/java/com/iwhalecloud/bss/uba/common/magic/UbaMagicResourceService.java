@@ -17,7 +17,6 @@ import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceStorage;
 import com.iwhalecloud.bss.magic.magicapi.utils.IoUtils;
 import com.iwhalecloud.bss.magic.magicapi.utils.JsonUtils;
 import com.iwhalecloud.bss.magic.magicapi.utils.WebUtils;
-import com.iwhalecloud.bss.uba.adapter.comm.UbaContext;
 import com.iwhalecloud.bss.uba.adapter.datasource.SessionHolder;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

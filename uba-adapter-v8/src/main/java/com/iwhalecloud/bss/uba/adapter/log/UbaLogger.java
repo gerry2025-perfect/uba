@@ -1,21 +1,24 @@
 package com.iwhalecloud.bss.uba.adapter.log;
 
+import com.ztesoft.zsmart.core.utils.UbaLoggerFactory;
 import com.ztesoft.zsmart.core.utils.ZSmartLogger;
 
 public class UbaLogger {
 
     private final ZSmartLogger logger;
 
+    private static final String UBA_LOGGER_FQCN = UbaLogger.class.getName();
+
     private UbaLogger(ZSmartLogger logger) {
         this.logger = logger;
     }
 
     public static UbaLogger getLogger(Class<?> clazz) {
-        return new UbaLogger(ZSmartLogger.getLogger(clazz));
+        return new UbaLogger(UbaLoggerFactory.getLogger(clazz.getName(), UBA_LOGGER_FQCN));
     }
 
     public static UbaLogger getLogger(String loggerName) {
-        return new UbaLogger(ZSmartLogger.getLogger(loggerName));
+        return new UbaLogger(UbaLoggerFactory.getLogger(loggerName, UBA_LOGGER_FQCN));
     }
 
     public boolean isDebugEnabled() {
