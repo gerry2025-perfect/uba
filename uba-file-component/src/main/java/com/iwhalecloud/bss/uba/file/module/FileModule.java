@@ -5,7 +5,7 @@ import com.iwhalecloud.bss.uba.common.prop.CommonConst;
 import com.iwhalecloud.bss.uba.file.magic.resource.FileInfo;
 import com.iwhalecloud.bss.uba.file.magic.resource.FileMagicDynamicRegistry;
 import com.iwhalecloud.bss.uba.file.operator.*;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.iwhalecloud.bss.magic.magicapi.core.annotation.MagicModule;
@@ -22,7 +22,7 @@ import java.util.Map;
 @MagicModule("file")
 public class FileModule implements DynamicAttribute<FileModule, FileModule>,DynamicModule<FileModule> {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(FileModule.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(FileModule.class);
 
     private IFileOperator fileOperator;
     private final FileMagicDynamicRegistry fileMagicDynamicRegistry;

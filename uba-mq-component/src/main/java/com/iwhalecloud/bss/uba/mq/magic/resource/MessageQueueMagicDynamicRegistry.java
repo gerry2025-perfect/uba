@@ -1,8 +1,8 @@
 package com.iwhalecloud.bss.uba.mq.magic.resource;
 
 import com.iwhalecloud.bss.uba.common.magic.MagicRunner;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.iwhalecloud.bss.uba.mq.MQOperateBuilder;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
 import com.ztesoft.zsmart.core.mq.CoreMQClientFactory;
 import com.ztesoft.zsmart.core.mq.common.exception.CoreMQClientApiException;
 import com.ztesoft.zsmart.core.mq.consumer.CoreConsumer;
@@ -18,7 +18,7 @@ import java.util.*;
 
 public class MessageQueueMagicDynamicRegistry extends AbstractMagicDynamicRegistry<MessageQueueInfo> {
 
-	private static final ZSmartLogger logger = ZSmartLogger.getLogger(MessageQueueMagicDynamicRegistry.class);
+	private static final UbaLogger logger = UbaLogger.getLogger(MessageQueueMagicDynamicRegistry.class);
 
 	private final CoreMQClientFactory mqClientFactory;
 	private final MagicRunner magicRunner;

@@ -1,8 +1,7 @@
 package com.iwhalecloud.bss.uba.common.log;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
-import org.slf4j.Logger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -11,7 +10,7 @@ import org.slf4j.LoggerFactory;
 public class DefaultLog4jStrategy implements LogPersistenceStrategy {
 
     // 使用一个专用的logger来写入结构化日志，方便在log4j配置中单独路由到指定文件
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger("MagicLog");
+    private static final UbaLogger logger = UbaLogger.getLogger("MagicLog");
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override

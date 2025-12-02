@@ -3,8 +3,8 @@ package com.iwhalecloud.bss.uba.remote.module;
 import com.iwhalecloud.bss.uba.common.CommonUtils;
 import com.iwhalecloud.bss.uba.common.dubbo.DubboOperator;
 import com.iwhalecloud.bss.uba.common.prop.CommonConst;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.iwhalecloud.bss.uba.remote.magic.resource.DubboMagicDynamicRegistry;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
 import com.iwhalecloud.bss.magic.magicapi.core.annotation.MagicModule;
 import com.iwhalecloud.bss.magic.magicapi.modules.DynamicModule;
 import com.iwhalecloud.bss.magic.script.MagicScriptContext;
@@ -18,7 +18,7 @@ import java.util.Map;
 @MagicModule("dubbo")
 public class DubboModule implements DynamicAttribute<DubboModule, DubboModule>,DynamicModule<DubboModule> {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(DubboModule.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(DubboModule.class);
 
     private ThreadLocal<DubboOperator> dubboOperator = new ThreadLocal<>();
     private final DubboMagicDynamicRegistry dubboMagicDynamicRegistry;

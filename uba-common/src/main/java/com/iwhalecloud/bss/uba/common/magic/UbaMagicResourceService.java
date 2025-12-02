@@ -8,6 +8,7 @@ import com.iwhalecloud.bss.magic.magicapi.core.event.GroupEvent;
 import com.iwhalecloud.bss.magic.magicapi.core.event.MagicEvent;
 import com.iwhalecloud.bss.magic.magicapi.core.exception.InvalidArgumentException;
 import com.iwhalecloud.bss.magic.magicapi.core.model.*;
+import com.iwhalecloud.bss.magic.magicapi.core.resource.DatabaseResource;
 import com.iwhalecloud.bss.magic.magicapi.core.resource.Resource;
 import com.iwhalecloud.bss.magic.magicapi.core.resource.ZipResource;
 import com.iwhalecloud.bss.magic.magicapi.core.service.AbstractPathMagicResourceStorage;
@@ -16,6 +17,8 @@ import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceStorage;
 import com.iwhalecloud.bss.magic.magicapi.utils.IoUtils;
 import com.iwhalecloud.bss.magic.magicapi.utils.JsonUtils;
 import com.iwhalecloud.bss.magic.magicapi.utils.WebUtils;
+import com.iwhalecloud.bss.uba.adapter.comm.UbaContext;
+import com.iwhalecloud.bss.uba.adapter.datasource.SessionHolder;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -913,7 +916,9 @@ public class UbaMagicResourceService implements MagicResourceService, JsonCodeCo
     }
 
     private <R> R writeLock(Supplier<R> supplier) {
+        SessionHolder.initSession(true);
         try {
+            //当前使用的是数据库，针对V8需要进行事务开启和事务提交
             lock.writeLock().lock();
             return supplier.get();
         } finally {
@@ -929,4 +934,5 @@ public class UbaMagicResourceService implements MagicResourceService, JsonCodeCo
             logger.error("Exception occurred during startup", e);
         }
     }
+
 }

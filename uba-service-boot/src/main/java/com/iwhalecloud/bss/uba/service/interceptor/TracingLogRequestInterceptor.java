@@ -1,7 +1,7 @@
 package com.iwhalecloud.bss.uba.service.interceptor;
 
 import com.iwhalecloud.bss.uba.common.log.LogGenerator;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import org.springframework.stereotype.Component;
 import com.iwhalecloud.bss.magic.magicapi.core.interceptor.RequestInterceptor;
 import com.iwhalecloud.bss.magic.magicapi.core.model.ApiInfo;
@@ -12,7 +12,7 @@ import com.iwhalecloud.bss.magic.script.MagicScriptContext;
 @Component
 public class TracingLogRequestInterceptor implements RequestInterceptor {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(TracingLogRequestInterceptor.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(TracingLogRequestInterceptor.class);
 
     private final LogGenerator logGenerator;
 

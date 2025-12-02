@@ -12,48 +12,41 @@
 
     <artifactId>uba-common</artifactId>
 
+    <properties>
+        <V8-version>8.2.X-SNAPSHOT</V8-version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>Core8</id>
+            <properties>
+
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>com.iwhalecloud.bss.uba</groupId>
+                    <artifactId>uba-adapter-v8</artifactId>
+                    <version>9.3-SNAPSHOT</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <profile>
+            <id>Core9</id>
+            <dependencies>
+                <dependency>
+                    <groupId>com.iwhalecloud.bss.uba</groupId>
+                    <artifactId>uba-adapter-v9</artifactId>
+                    <version>9.3-SNAPSHOT</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
     <dependencies>
-
-        <dependency>
-            <groupId>com.ztesoft.zsmart.core</groupId>
-            <artifactId>core-boot-starter-mybatis</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.iwhalecloud.zdaas</groupId>
-                    <artifactId>zdaas-jdbc</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.iwhalecloud.zdaas</groupId>
-            <artifactId>zdaas-jdbc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.ztesoft.zsmart.core</groupId>
-            <artifactId>core-boot-starter-druid</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.ztesoft.zsmart.core</groupId>
-            <artifactId>core-boot-starter-oracle</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.ztesoft.zsmart.core</groupId>
-            <artifactId>core-boot-starter-mysql</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.ztesoft.zsmart.core</groupId>
-            <artifactId>core-base</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>javax.annotation-api</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.ztesoft.zsmart.core</groupId>
-            <artifactId>core-boot-starter-cache</artifactId>
         </dependency>
 
         <dependency>

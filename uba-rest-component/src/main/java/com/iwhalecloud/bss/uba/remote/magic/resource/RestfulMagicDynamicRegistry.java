@@ -1,7 +1,7 @@
 package com.iwhalecloud.bss.uba.remote.magic.resource;
 
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.iwhalecloud.bss.uba.remote.module.RestSiteOperator;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
 import lombok.Getter;
 import org.springframework.context.event.EventListener;
 import org.springframework.web.client.RestTemplate;
@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class RestfulMagicDynamicRegistry extends AbstractMagicDynamicRegistry<RestSiteInfo> {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(RestfulMagicDynamicRegistry.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(RestfulMagicDynamicRegistry.class);
 
     private final RestTemplate restTemplate;
     @Getter

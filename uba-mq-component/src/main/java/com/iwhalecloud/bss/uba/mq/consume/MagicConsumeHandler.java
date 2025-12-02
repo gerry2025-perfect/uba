@@ -2,13 +2,13 @@ package com.iwhalecloud.bss.uba.mq.consume;
 
 import com.iwhalecloud.bss.uba.common.ResultEntity;
 import com.iwhalecloud.bss.uba.common.magic.MagicRunner;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.iwhalecloud.bss.uba.mq.magic.resource.MessageQueueInfo;
 import com.iwhalecloud.bss.uba.mq.magic.resource.MessageQueueMagicDynamicRegistry;
 import com.ztesoft.mq.client.api.consumer.MQMessageHandler;
 import com.ztesoft.mq.client.api.consumer.MessageHandlerContext;
 import com.ztesoft.mq.client.api.model.MQMessage;
 import com.ztesoft.mq.client.impl.consumer.ProcessStatus;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
 import com.ztesoft.zsmart.core.mq.consumer.CoreMQMessageHandler;
 import com.ztesoft.zsmart.core.mq.consumer.CoreMessageHandlerContext;
 import com.ztesoft.zsmart.core.mq.consumer.CoreProcessStatus;
@@ -20,7 +20,7 @@ import java.util.Map;
 
 public class MagicConsumeHandler implements MQMessageHandler, CoreMQMessageHandler {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(MagicConsumeHandler.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(MagicConsumeHandler.class);
 
     @Getter
     private final MagicRunner magicRunner;

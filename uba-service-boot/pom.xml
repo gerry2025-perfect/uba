@@ -13,11 +13,11 @@
     <packaging>war</packaging>
 
     <dependencies>
-        <dependency>
+        <!--<dependency>
             <groupId>com.iwhalecloud.bss.uba</groupId>
             <artifactId>uba-plugin-component</artifactId>
             <version>9.3-SNAPSHOT</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>com.iwhalecloud.bss.uba</groupId>
             <artifactId>uba-rest-component</artifactId>

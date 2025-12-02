@@ -3,7 +3,7 @@ package com.iwhalecloud.bss.uba.file.module;
 import com.iwhalecloud.bss.uba.file.excel.CsvOperator;
 import com.iwhalecloud.bss.uba.file.excel.IFileOperator;
 import com.iwhalecloud.bss.uba.file.excel.PoiExcelOperator;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import org.springframework.stereotype.Component;
 import com.iwhalecloud.bss.magic.magicapi.core.annotation.MagicModule;
 import com.iwhalecloud.bss.magic.magicapi.modules.DynamicModule;
@@ -20,7 +20,7 @@ import java.util.Map;
 @MagicModule("excel")
 public class ExcelModule implements DynamicAttribute<ExcelModule, ExcelModule>, DynamicModule<ExcelModule> {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(ExcelModule.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(ExcelModule.class);
 
     @Override
     public ExcelModule getDynamicModule(MagicScriptContext context) {

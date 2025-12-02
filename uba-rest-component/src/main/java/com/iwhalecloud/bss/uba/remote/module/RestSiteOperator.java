@@ -1,9 +1,9 @@
 package com.iwhalecloud.bss.uba.remote.module;
 
 import com.iwhalecloud.bss.uba.common.dto.ParameterInfo;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.iwhalecloud.bss.uba.remote.magic.resource.RestEndpoint;
 import com.iwhalecloud.bss.uba.remote.magic.resource.RestSiteInfo;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
 import org.springframework.http.*;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 /**Restful站点操作类*/
 public class RestSiteOperator {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(RestSiteOperator.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(RestSiteOperator.class);
 
     private final RestTemplate restTemplate;
 

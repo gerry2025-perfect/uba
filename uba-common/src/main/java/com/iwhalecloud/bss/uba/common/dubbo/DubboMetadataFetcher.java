@@ -1,7 +1,6 @@
 package com.iwhalecloud.bss.uba.common.dubbo;
 
-import com.iwhalecloud.bss.uba.common.magic.MagicRunner;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import lombok.Setter;
 import org.apache.dubbo.common.URL;
 import org.apache.dubbo.shaded.org.apache.curator.framework.CuratorFramework;
@@ -18,7 +17,7 @@ import java.util.regex.Pattern;
 /**从zk服务器上获取已注册的服务*/
 public class DubboMetadataFetcher implements AutoCloseable {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(DubboMetadataFetcher.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(DubboMetadataFetcher.class);
 
     private static final String ROOT_PATH = "/dubbo"; // Dubbo 2.x 根路径
     private final CuratorFramework zkClient;

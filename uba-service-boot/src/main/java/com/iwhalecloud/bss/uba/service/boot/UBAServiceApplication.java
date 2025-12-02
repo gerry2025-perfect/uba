@@ -1,5 +1,6 @@
 package com.iwhalecloud.bss.uba.service.boot;
 
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.ztesoft.zsmart.core.log.ZSmartLogger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,7 +27,7 @@ import java.time.Duration;
 @EnableCaching
 public class UBAServiceApplication extends SpringBootServletInitializer {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(ZSmartLogger.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(ZSmartLogger.class);
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {

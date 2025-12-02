@@ -2,7 +2,7 @@ package com.iwhalecloud.bss.uba.common.log;
 
 import com.iwhalecloud.bss.uba.common.CommonUtils;
 import com.iwhalecloud.bss.uba.common.TransactionIdGenerator;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 
 import java.util.Date;
 import java.util.Stack;
@@ -18,7 +18,7 @@ import java.util.Stack;
  * */
 public class LogGenerator {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(LogGenerator.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(LogGenerator.class);
 
     /**当前线程的tracingId*/
     protected final ThreadLocal<String> tracingId = new InheritableThreadLocal<>();

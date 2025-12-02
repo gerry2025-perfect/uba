@@ -3,7 +3,7 @@ package com.iwhalecloud.bss.uba.common.javaassist.process;
 import com.iwhalecloud.bss.uba.common.javaassist.config.JAssistConfig;
 import com.iwhalecloud.bss.uba.common.javaassist.weave.WeaveCode;
 import com.iwhalecloud.bss.uba.common.javaassist.weave.WeaveContext;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import javassist.CtClass;
 import javassist.CtMethod;
 import javassist.CtNewMethod;
@@ -15,7 +15,7 @@ import java.util.ListIterator;
 /**整体替换，原本方法重命名，新方法名为原本方法，在新方法中调用原本方法，以此在前、后、异常时、finally中均可以加强*/
 public class RoundPreProcessor implements IMethodPreProcessor {
 
-  private static final ZSmartLogger logger = ZSmartLogger.getLogger(RoundPreProcessor.class);
+  private static final UbaLogger logger = UbaLogger.getLogger(RoundPreProcessor.class);
 
   public CtMethod preProcessor(CtClass ctClass, CtMethod method, WeaveContext weaveContext, WeaveCode weaveCode) throws Exception {
     if (method == null || ctClass.isFrozen()) {

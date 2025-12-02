@@ -5,9 +5,9 @@ import com.iwhalecloud.bss.uba.common.ResultEntity;
 import com.iwhalecloud.bss.uba.common.exception.ExceptionDefine;
 import com.iwhalecloud.bss.uba.common.exception.UbaException;
 import com.iwhalecloud.bss.uba.common.prop.CommonConst;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.iwhalecloud.bss.uba.mq.magic.resource.MessageQueueInfo;
 import com.iwhalecloud.bss.uba.mq.magic.resource.MessageQueueMagicDynamicRegistry;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
 import com.ztesoft.zsmart.core.mq.model.CoreMQMessage;
 import com.ztesoft.zsmart.core.mq.model.CoreProduceResult;
 import com.ztesoft.zsmart.core.mq.model.CoreProduceResultStatus;
@@ -26,7 +26,7 @@ import java.util.Map;
 @MagicModule("mq")
 public class MqModule implements DynamicAttribute<MqModule, MqModule>, DynamicModule<MqModule> {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(MqModule.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(MqModule.class);
 
     private final MessageQueueMagicDynamicRegistry messageQueueMagicDynamicRegistry;
 

@@ -1,6 +1,6 @@
 package com.iwhalecloud.bss.uba.file.excel;
 
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -15,7 +15,7 @@ import java.util.*;
 /**通过POI操作Excel文件*/
 public class PoiExcelOperator implements IFileOperator {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(PoiExcelOperator.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(PoiExcelOperator.class);
 
     /**
      * 从excel文件中读取信息

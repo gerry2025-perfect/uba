@@ -1,0 +1,111 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.iwhalecloud.bss.uba</groupId>
+        <artifactId>uba-parent</artifactId>
+        <version>9.3-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>uba-adapter-v8</artifactId>
+    <packaging>jar</packaging>
+
+    <name>uba-adapter-v8</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <V8-version>8.2.X-SNAPSHOT</V8-version>
+    </properties>
+
+    <dependencies>
+        <!-- ztesoft technology framework -->
+        <dependency>
+            <groupId>com.ztesoft.zsmart.mfr</groupId>
+            <artifactId>core-base</artifactId>
+            <version>${V8-version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jakarta.activation-api</artifactId>
+                    <groupId>jakarta.activation</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.ztesoft.zsmart.mfr</groupId>
+            <artifactId>core-jdbc</artifactId>
+            <version>${V8-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ztesoft.zsmart.mfr</groupId>
+            <artifactId>core-service</artifactId>
+            <version>${V8-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-transaction</groupId>
+            <artifactId>commons-transaction</artifactId>
+            <version>1.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ztesoft.zsmart.zcm</groupId>
+            <artifactId>itracing-open-api</artifactId>
+            <version>9.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.iwhalecloud.crm</groupId>
+            <artifactId>bop-metrics-agent</artifactId>
+            <version>9.2-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ztesoft.zmq</groupId>
+            <artifactId>unite-mq-client</artifactId>
+            <version>9.0.26.1</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>kafka-clients</artifactId>
+                    <groupId>org.apache.kafka</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.ztesoft.zsmart.core</groupId>
+            <artifactId>core-mq</artifactId>
+            <version>9.2.28</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.ztesoft.zsmart.core</groupId>
+                    <artifactId>core-common</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.iwhalecloud.bss.uba</groupId>
+            <artifactId>uba-adapter-comm</artifactId>
+            <version>9.3-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>

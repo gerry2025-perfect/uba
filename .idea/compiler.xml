@@ -7,6 +7,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="uba-adapter-v8" />
+        <module name="uba-adapter-v9" />
         <module name="uba-mq-component" />
         <module name="magic-api-plugin-task" />
         <module name="uba-common" />
@@ -19,6 +21,7 @@
         <module name="magic-editor" />
         <module name="magic-api-plugin-redis" />
         <module name="magic-script" />
+        <module name="uba-adapter-comm" />
         <module name="magic-api-plugin-component" />
         <module name="magic-api-servlet-jakarta" />
         <module name="magic-api-plugin-cluster" />
@@ -27,10 +30,12 @@
         <module name="magic-api-servlet-javaee" />
         <module name="uba-rest-component" />
         <module name="magic-api-plugin-nebula" />
-        <module name="uba-plugin-component" />
         <module name="magic-api-plugin-elasticsearch" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="uba-plugin-component" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -52,6 +57,9 @@
       <module name="magic-api-servlet-javaee" options="-parameters -parameters" />
       <module name="magic-api-spring-boot-starter" options="-parameters -parameters" />
       <module name="magic-editor" options="-parameters -parameters" />
+      <module name="uba-adapter-comm" options="-parameters" />
+      <module name="uba-adapter-v8" options="-parameters" />
+      <module name="uba-adapter-v9" options="-parameters" />
       <module name="uba-common" options="-parameters" />
       <module name="uba-file-component" options="-parameters" />
       <module name="uba-mq-component" options="-parameters" />

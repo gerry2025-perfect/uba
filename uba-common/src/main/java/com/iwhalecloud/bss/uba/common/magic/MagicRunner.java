@@ -3,19 +3,15 @@ package com.iwhalecloud.bss.uba.common.magic;
 import com.iwhalecloud.bss.uba.common.CommonUtils;
 import com.iwhalecloud.bss.uba.common.ResultEntity;
 import com.iwhalecloud.bss.uba.common.exception.ExceptionDefine;
-import com.iwhalecloud.bss.uba.common.prop.PropertyHolder;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.iwhalecloud.bss.magic.magicapi.core.service.MagicAPIService;
 
-import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**magic脚本执行器，对magic-api进行包装、执行*/
 public class MagicRunner {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(MagicRunner.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(MagicRunner.class);
 
     private final MagicAPIService magicAPIService;
 

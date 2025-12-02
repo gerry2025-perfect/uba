@@ -1,7 +1,7 @@
 package com.iwhalecloud.bss.uba.common.javaassist;
 
 import com.iwhalecloud.bss.uba.common.javaassist.config.JAssistConfig;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 
 public abstract class AbstractPreProcessor implements IPreProcessor {
 
-  private static final ZSmartLogger logger = ZSmartLogger.getLogger(AbstractPreProcessor.class);
+  private static final UbaLogger logger = UbaLogger.getLogger(AbstractPreProcessor.class);
 
   protected Set<String> excludeMethods;
   protected Set<String> excludeMethodRegulars;

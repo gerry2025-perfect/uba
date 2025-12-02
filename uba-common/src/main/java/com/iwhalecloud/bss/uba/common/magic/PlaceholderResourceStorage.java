@@ -7,13 +7,13 @@ import com.iwhalecloud.bss.magic.magicapi.utils.JsonUtils;
 import com.iwhalecloud.bss.uba.common.CommonUtils;
 import com.iwhalecloud.bss.uba.common.prop.CommonConst;
 import com.iwhalecloud.bss.uba.common.prop.PropertyHolder;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 
 import java.nio.charset.StandardCharsets;
 
 public abstract class PlaceholderResourceStorage<T extends MagicEntity> implements MagicResourceStorage<T>, JsonCodeConstants {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(PlaceholderResourceStorage.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(PlaceholderResourceStorage.class);
 
     @Override
     public T read(byte[] bytes) {

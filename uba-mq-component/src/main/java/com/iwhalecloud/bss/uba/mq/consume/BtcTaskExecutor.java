@@ -5,7 +5,7 @@ import com.iwhalecloud.bss.uba.common.ResultEntity;
 import com.iwhalecloud.bss.uba.common.exception.ExceptionDefine;
 import com.iwhalecloud.bss.uba.common.exception.UbaException;
 import com.iwhalecloud.bss.uba.common.prop.CommonConst;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.ztesoft.zsmart.core.mq.common.exception.CoreMQClientApiException;
 import com.ztesoft.zsmart.core.mq.model.CoreMQMessage;
 
@@ -15,7 +15,7 @@ import java.util.Map;
 /**用来处理BTC模块发送的任务处理，出入信息都按照BTC模块的要求来*/
 public class BtcTaskExecutor extends MagicConsumeHandler.AbstractExecutor {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(BtcTaskExecutor.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(BtcTaskExecutor.class);
 
     /**任务名称*/
     private String taskName;

@@ -1,8 +1,8 @@
 package com.iwhalecloud.bss.uba.remote.module;
 
 import com.iwhalecloud.bss.uba.common.prop.CommonConst;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.iwhalecloud.bss.uba.remote.magic.resource.RestfulMagicDynamicRegistry;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
 import org.springframework.http.MediaType;
 import com.iwhalecloud.bss.magic.magicapi.core.annotation.MagicModule;
 import com.iwhalecloud.bss.magic.magicapi.modules.DynamicModule;
@@ -15,7 +15,7 @@ import java.util.Map;
 @MagicModule("restful")
 public class RestfulModule implements DynamicAttribute<RestfulModule, RestfulModule>, DynamicModule<RestfulModule> {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(RestfulModule.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(RestfulModule.class);
 
     private final RestfulMagicDynamicRegistry registry;
     private final ThreadLocal<RestSiteOperator> operatorHolder = new ThreadLocal<>();

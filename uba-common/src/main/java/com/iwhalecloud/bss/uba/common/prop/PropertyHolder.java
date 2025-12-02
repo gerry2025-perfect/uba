@@ -2,7 +2,7 @@ package com.iwhalecloud.bss.uba.common.prop;
 
 import com.iwhalecloud.bss.uba.common.exception.ExceptionDefine;
 import com.iwhalecloud.bss.uba.common.exception.UbaException;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import org.springframework.core.env.*;
 
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class PropertyHolder {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(PropertyHolder.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(PropertyHolder.class);
 
     private static PropertyResolver propertyResolver;
     private static Map<String, String> properties = new HashMap<>();

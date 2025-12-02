@@ -1,7 +1,7 @@
 package com.iwhalecloud.bss.uba.remote.magic.resource;
 
 import com.iwhalecloud.bss.uba.common.dubbo.DubboOperator;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import org.springframework.context.event.EventListener;
 import com.iwhalecloud.bss.magic.magicapi.core.event.FileEvent;
 import com.iwhalecloud.bss.magic.magicapi.core.service.AbstractMagicDynamicRegistry;
@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class DubboMagicDynamicRegistry extends AbstractMagicDynamicRegistry<DubboInfo> {
 
-	private static final ZSmartLogger logger = ZSmartLogger.getLogger(DubboMagicDynamicRegistry.class);
+	private static final UbaLogger logger = UbaLogger.getLogger(DubboMagicDynamicRegistry.class);
 
 	private final Map<String, DubboOperator> dubboOperatorMap = new HashMap<>();
 

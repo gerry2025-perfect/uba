@@ -8,7 +8,7 @@ import com.iwhalecloud.bss.uba.common.javaassist.process.BeforeAfterPreProcessor
 import com.iwhalecloud.bss.uba.common.javaassist.process.IMethodPreProcessor;
 import com.iwhalecloud.bss.uba.common.javaassist.process.RoundPreProcessor;
 import com.iwhalecloud.bss.uba.common.javaassist.weave.*;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import javassist.*;
 import javassist.bytecode.CodeAttribute;
 import javassist.bytecode.LocalVariableAttribute;
@@ -20,7 +20,7 @@ import java.util.*;
 
 public class DefaultPreProcessor extends AbstractPreProcessor {
 
-  private static final ZSmartLogger logger = ZSmartLogger.getLogger(DefaultPreProcessor.class);
+  private static final UbaLogger logger = UbaLogger.getLogger(DefaultPreProcessor.class);
 
   //默认排除当前框架中的类路径
   private final String DEFAULT_EXCLUDE_PATH = "com.iwhalecloud.crm.devops.alog";

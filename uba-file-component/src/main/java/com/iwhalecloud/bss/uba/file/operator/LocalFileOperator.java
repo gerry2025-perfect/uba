@@ -1,8 +1,7 @@
 package com.iwhalecloud.bss.uba.file.operator;
 
-import com.iwhalecloud.bss.uba.common.releaser.IReleasable;
 import com.iwhalecloud.bss.uba.file.magic.resource.FileInfo;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -15,7 +14,7 @@ import java.util.List;
  */
 public class LocalFileOperator implements IFileOperator {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(LocalFileOperator.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(LocalFileOperator.class);
 
     private final FileInfo fileInfo;
     private String rootDir;

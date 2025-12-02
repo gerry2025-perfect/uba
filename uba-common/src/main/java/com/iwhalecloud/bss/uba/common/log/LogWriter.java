@@ -1,10 +1,8 @@
 package com.iwhalecloud.bss.uba.common.log;
 
 import com.google.common.util.concurrent.RateLimiter;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
-import org.springframework.stereotype.Component;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 
-import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.Map;
 import java.util.concurrent.*;
@@ -19,7 +17,7 @@ import java.util.concurrent.*;
  */
 public class LogWriter {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(LogWriter.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(LogWriter.class);
 
     // 存储不同日志类型的队列
     private final Map<Class<?>, BlockingQueue<Object>> queues = new ConcurrentHashMap<>();

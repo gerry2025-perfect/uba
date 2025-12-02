@@ -1,9 +1,9 @@
 package com.iwhalecloud.bss.uba.mq.config;
 
 import com.iwhalecloud.bss.uba.common.magic.MagicRunner;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.iwhalecloud.bss.uba.mq.magic.resource.MessageQueueMagicDynamicRegistry;
 import com.iwhalecloud.bss.uba.mq.magic.resource.MessageQueueMagicResourceStorage;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
 import com.ztesoft.zsmart.core.mq.CoreMQClientFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import com.iwhalecloud.bss.magic.magicapi.spring.boot.starter.MagicModuleConfigu
 @AutoConfigureAfter(MagicModuleConfiguration.class)
 public class UbaMQConfig implements InitializingBean {
 
-    private static ZSmartLogger logger = ZSmartLogger.getLogger(UbaMQConfig.class);
+    private static UbaLogger logger = UbaLogger.getLogger(UbaMQConfig.class);
 
     @Bean
     @ConditionalOnMissingBean

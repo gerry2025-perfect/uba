@@ -41,6 +41,9 @@
     <file url="file://$PROJECT_DIR$/../../../magic-product/magic-script/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/uba-adapter-comm/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/uba-adapter-v8/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/uba-adapter-v9/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/uba-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/uba-file-component/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/uba-mq-component/src/main/java" charset="UTF-8" />

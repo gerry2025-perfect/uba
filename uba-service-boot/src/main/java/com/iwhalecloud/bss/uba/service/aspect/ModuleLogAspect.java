@@ -1,7 +1,7 @@
 package com.iwhalecloud.bss.uba.service.aspect;
 
 import com.iwhalecloud.bss.uba.common.log.LogGenerator;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ModuleLogAspect {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(ModuleLogAspect.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(ModuleLogAspect.class);
 
     private final LogGenerator logGenerator;
 

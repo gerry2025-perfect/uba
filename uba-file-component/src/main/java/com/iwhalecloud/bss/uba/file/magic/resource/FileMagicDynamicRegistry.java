@@ -1,7 +1,7 @@
 package com.iwhalecloud.bss.uba.file.magic.resource;
 
 import com.iwhalecloud.bss.uba.common.CommonUtils;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ import java.util.Map;
 @Component
 public class FileMagicDynamicRegistry extends AbstractMagicDynamicRegistry<FileInfo> {
 
-	private static final ZSmartLogger logger = ZSmartLogger.getLogger(FileMagicDynamicRegistry.class);
+	private static final UbaLogger logger = UbaLogger.getLogger(FileMagicDynamicRegistry.class);
 
 	private static Map<String,FileInfo> fileInfoMap = new HashMap<>();
 

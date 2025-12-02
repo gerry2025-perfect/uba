@@ -5,8 +5,8 @@ import com.iwhalecloud.bss.uba.common.exception.UbaException;
 import com.iwhalecloud.bss.uba.common.releaser.AutoReleaser;
 import com.iwhalecloud.bss.uba.common.releaser.IReleasable;
 import com.iwhalecloud.bss.uba.file.magic.resource.FileInfo;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.jcraft.jsch.*;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -20,7 +20,7 @@ import java.util.Vector;
  */
 public class SftpFileOperator implements IFileOperator, IReleasable {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(SftpFileOperator.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(SftpFileOperator.class);
 
     private final FileInfo fileInfo;
     private ChannelSftp sftpChannel;

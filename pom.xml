@@ -5,11 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>uba-common</module>
-        <module>uba-plugin-component</module>
+        <!--<module>uba-plugin-component</module>-->
         <module>uba-service-boot</module>
         <module>uba-rest-component</module>
         <module>uba-mq-component</module>
         <module>uba-file-component</module>
+        <module>uba-adapter-v9</module>
+        <module>uba-adapter-v8</module>
+        <module>uba-adapter-comm</module>
     </modules>
 
     <parent>

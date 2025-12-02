@@ -1,9 +1,12 @@
 package com.iwhalecloud.bss.uba.service.configuration;
 
+import com.iwhalecloud.bss.magic.magicapi.core.exception.MagicAPIException;
 import com.iwhalecloud.bss.magic.magicapi.core.model.MagicEntity;
+import com.iwhalecloud.bss.magic.magicapi.core.resource.DatabaseResource;
 import com.iwhalecloud.bss.magic.magicapi.core.resource.Resource;
 import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceService;
 import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceStorage;
+import com.iwhalecloud.bss.uba.common.magic.UbaDatabaseResource;
 import com.iwhalecloud.bss.uba.common.magic.UbaDatasourceInfoMagicResourceStorage;
 import com.iwhalecloud.bss.uba.common.magic.UbaMagicResourceService;
 import com.iwhalecloud.bss.uba.service.interceptor.CustomRequestInterceptor;
@@ -17,11 +20,13 @@ import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 import com.iwhalecloud.bss.magic.magicapi.core.config.MagicAPIProperties;
 import com.iwhalecloud.bss.magic.magicapi.core.config.MagicConfiguration;
@@ -96,19 +101,25 @@ public class MagicAPIConfiguration {
 		return new UbaMagicResourceService(workspace, magicResourceStoragesProvider.getObject(), applicationContext);
 	}
 
-
-	/*@Bean
-	public ModuleLogAspect moduleLogAspect(LogGenerator logGenerator){
-		return new ModuleLogAspect(logGenerator);
-	}*/
+	@Bean
+	@ConditionalOnMissingBean(Resource.class)
+	@ConditionalOnProperty(prefix = "magic-api", name = "resource.type", havingValue = "database")
+	public Resource magicDatabaseResource(MagicDynamicDataSource magicDynamicDataSource) {
+		com.iwhalecloud.bss.magic.magicapi.core.config.Resource resourceConfig = properties.getResource();
+		if (magicDynamicDataSource.isEmpty()) {
+			throw new MagicAPIException("No data source is currently configured. If configured, please import spring-boot-starter-jdbc before trying!");
+		}
+		MagicDynamicDataSource.DataSourceNode dataSourceNode = magicDynamicDataSource.getDataSource(resourceConfig.getDatasource());
+		return new UbaDatabaseResource(new JdbcTemplate(dataSourceNode.getDataSource()), resourceConfig.getTableName(), resourceConfig.getPrefix(), resourceConfig.isReadonly());
+	}
 
 	/**
 	 * 配置自定义JSON结果
 	 */
-	// @Bean
+	/*@Bean
 	public CustomJsonValueProvider customJsonValueProvider() {
 		return new CustomJsonValueProvider();
-	}
+	}*/
 
 	/**
 	 * 配置分页获取方式

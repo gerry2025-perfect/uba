@@ -4,10 +4,10 @@ import com.iwhalecloud.bss.uba.common.CommonUtils;
 import com.iwhalecloud.bss.uba.common.magic.MagicRunner;
 import com.iwhalecloud.bss.uba.common.prop.CommonConst;
 import com.iwhalecloud.bss.uba.common.prop.PropertyHolder;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.iwhalecloud.bss.uba.mq.consume.MagicConsumeHandler;
 import com.iwhalecloud.bss.uba.mq.magic.resource.MessageQueueInfo;
 import com.iwhalecloud.bss.uba.mq.magic.resource.MessageQueueMagicDynamicRegistry;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
 import com.ztesoft.zsmart.core.mq.CoreMQClientFactory;
 import com.ztesoft.zsmart.core.mq.common.MQProperties;
 import com.ztesoft.zsmart.core.mq.common.exception.CoreMQClientApiException;
@@ -22,7 +22,7 @@ import java.util.*;
 /**构造MQ的环境配置信息，可能来源于配置项，也可能来源于数据库*/
 public class MQOperateBuilder {
 
-    private static ZSmartLogger logger = ZSmartLogger.getLogger(MQOperateBuilder.class);
+    private static UbaLogger logger = UbaLogger.getLogger(MQOperateBuilder.class);
 
     private Properties convertToProperties(MQProperties mqProperties) {
         Properties properties = new Properties();

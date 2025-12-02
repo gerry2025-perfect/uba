@@ -6,6 +6,7 @@ import com.iwhalecloud.bss.uba.common.magic.MagicRunner;
 import com.iwhalecloud.bss.uba.common.prop.PropertyHolder;
 import com.iwhalecloud.bss.uba.common.releaser.AutoReleaser;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

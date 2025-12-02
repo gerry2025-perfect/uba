@@ -1,6 +1,6 @@
 package com.iwhalecloud.bss.uba.common.releaser;
 
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 /**自动释放器*/
 public class AutoReleaser {
 
-    private static final ZSmartLogger logger = ZSmartLogger.getLogger(AutoReleaser.class);
+    private static final UbaLogger logger = UbaLogger.getLogger(AutoReleaser.class);
 
     private static Map<IReleasable, Long> lastOperateMap = new ConcurrentHashMap<>();
 
