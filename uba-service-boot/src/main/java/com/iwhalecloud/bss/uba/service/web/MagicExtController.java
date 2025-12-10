@@ -1,9 +1,9 @@
 package com.iwhalecloud.bss.uba.service.web;
 
-import com.iwhalecloud.bss.uba.common.CommonUtils;
+import com.iwhalecloud.bss.uba.comm.CommonUtils;
 import com.iwhalecloud.bss.uba.common.dubbo.DubboMetadataFetcher;
 import com.iwhalecloud.bss.uba.common.magic.UbaMagicResourceService;
-import com.iwhalecloud.bss.uba.common.prop.PropertyHolder;
+import com.iwhalecloud.bss.uba.comm.prop.PropertyHolder;
 import com.iwhalecloud.bss.uba.file.magic.resource.FileInfo;
 import com.iwhalecloud.bss.uba.file.operator.FileOperatorFactory;
 import com.iwhalecloud.bss.uba.file.operator.IFileOperator;
@@ -36,7 +36,8 @@ public class MagicExtController  extends MagicController implements MagicExcepti
     @GetMapping("/resource/file/{id}/detail")
     @ResponseBody
     public JsonBean<MagicEntity> detail(@PathVariable("id") String id, MagicHttpServletRequest request) {
-        if(MagicConfiguration.getMagicResourceService() instanceof UbaMagicResourceService ubaMagicResourceService){
+        if(MagicConfiguration.getMagicResourceService() instanceof UbaMagicResourceService ){
+            UbaMagicResourceService ubaMagicResourceService = (UbaMagicResourceService)MagicConfiguration.getMagicResourceService();
             return new JsonBean<>(ubaMagicResourceService.file(id, true));
         }else {
             return new JsonBean<>(MagicConfiguration.getMagicResourceService().file(id));
@@ -49,7 +50,8 @@ public class MagicExtController  extends MagicController implements MagicExcepti
     @ResponseBody
     public JsonBean<MagicEntity> refreshDubbo(@PathVariable("id") String id, MagicHttpServletRequest request) {
         MagicEntity entity = MagicConfiguration.getMagicResourceService().file(id);
-        if(entity instanceof DubboInfo dubboInfo){
+        if(entity instanceof DubboInfo ){
+            DubboInfo dubboInfo = (DubboInfo) entity;
             //对于配置zookeeper://172.16.83.207:26001?backup=172.16.83.208:26001,10.10.179.137:26001完整地址的，只取其中主地址zk进行访问
             String zkAddr = dubboInfo.getRegisterAddr();
             if(zkAddr.contains("?")){
@@ -90,7 +92,8 @@ public class MagicExtController  extends MagicController implements MagicExcepti
     public JsonBean<MagicEntity> saveMQTopic(@PathVariable("id") String id, @PathVariable("topicType") String topicType, MagicHttpServletRequest request) throws IOException {
         //新增的时候需要校验topic是否已存在
         MagicEntity entity = MagicConfiguration.getMagicResourceService().file(id);
-        if(entity instanceof MessageQueueInfo messageQueueInfo){
+        if(entity instanceof MessageQueueInfo ){
+            MessageQueueInfo messageQueueInfo = (MessageQueueInfo) entity;
             byte[] bytes = IoUtils.bytes(request.getInputStream());
             MessageQueueInfo.TopicInfo topicInfo = JsonUtils.readValue(bytes, MessageQueueInfo.TopicInfo.class);
             boolean isConsumer = MessageQueueInfo.DIRECT_CONSUMER.equals(topicType) || MessageQueueInfo.DIRECT_PRODUCER_CONSUMER.equals(topicType);
@@ -132,7 +135,8 @@ public class MagicExtController  extends MagicController implements MagicExcepti
     @ResponseBody
     public JsonBean<MagicEntity> updateMQTopic(@PathVariable("id") String id, MagicHttpServletRequest request) throws IOException {
         MagicEntity entity = MagicConfiguration.getMagicResourceService().file(id);
-        if(entity instanceof MessageQueueInfo messageQueueInfo){
+        if(entity instanceof MessageQueueInfo ){
+            MessageQueueInfo messageQueueInfo = (MessageQueueInfo) entity;
             byte[] bytes = IoUtils.bytes(request.getInputStream());
             MessageQueueInfo.TopicInfo topicInfo = JsonUtils.readValue(bytes, MessageQueueInfo.TopicInfo.class);
             if(isExistTopic(messageQueueInfo.getConsumerTopics(), topicInfo)){
@@ -153,7 +157,8 @@ public class MagicExtController  extends MagicController implements MagicExcepti
     @ResponseBody
     public JsonBean<MagicEntity> deleteMQTopic(@PathVariable("id") String id, @PathVariable("topicName") String topicName) {
         MagicEntity entity = MagicConfiguration.getMagicResourceService().file(id);
-        if (entity instanceof MessageQueueInfo messageQueueInfo) {
+        if (entity instanceof MessageQueueInfo ) {
+            MessageQueueInfo messageQueueInfo = (MessageQueueInfo) entity;
             boolean removed = messageQueueInfo.getConsumerTopics().removeIf(topic -> topic.getTopicName().equals(topicName));
             removed |= messageQueueInfo.getProducerTopics().removeIf(topic -> topic.getTopicName().equals(topicName));
             if (removed) {
@@ -172,7 +177,8 @@ public class MagicExtController  extends MagicController implements MagicExcepti
     @ResponseBody
     public JsonBean<MagicEntity> saveOrUpdateRestfulApi(@PathVariable("id") String id, MagicHttpServletRequest request) throws IOException {
         MagicEntity entity = MagicConfiguration.getMagicResourceService().file(id);
-        if (entity instanceof RestSiteInfo restSiteInfo) {
+        if (entity instanceof RestSiteInfo ) {
+            RestSiteInfo restSiteInfo = (RestSiteInfo) entity;
             byte[] bytes = IoUtils.bytes(request.getInputStream());
             RestEndpoint endpoint = JsonUtils.readValue(bytes, RestEndpoint.class);
             restSiteInfo.getApis().removeIf(api -> api.getCode().equals(endpoint.getCode()));
@@ -189,7 +195,8 @@ public class MagicExtController  extends MagicController implements MagicExcepti
     @ResponseBody
     public JsonBean<MagicEntity> deleteRestfulApi(@PathVariable("id") String id, @PathVariable("apiCode") String apiCode) {
         MagicEntity entity = MagicConfiguration.getMagicResourceService().file(id);
-        if (entity instanceof RestSiteInfo restSiteInfo) {
+        if (entity instanceof RestSiteInfo ) {
+            RestSiteInfo restSiteInfo = (RestSiteInfo) entity;
             boolean removed = restSiteInfo.getApis().removeIf(api -> api.getCode().equals(apiCode));
             if (removed) {
                 MagicConfiguration.getMagicResourceService().saveFile(restSiteInfo);
@@ -222,7 +229,8 @@ public class MagicExtController  extends MagicController implements MagicExcepti
     @ResponseBody
     public JsonBean<Map<String,List<String>>> queryFileStruct(@PathVariable("id") String id, MagicHttpServletRequest request) throws IOException {
         MagicEntity entity = MagicConfiguration.getMagicResourceService().file(id);
-        if(entity instanceof FileInfo fileInfo) {
+        if(entity instanceof FileInfo ) {
+            FileInfo fileInfo = (FileInfo) entity;
             Map params = JsonUtils.readValue(IoUtils.bytes(request.getInputStream()),Map.class);
             if(params==null) params = new HashMap();
             String path = CommonUtils.buildFullPath(fileInfo.getRootDir(), !params.containsKey("path") ? "" : String.valueOf(params.get("path")));

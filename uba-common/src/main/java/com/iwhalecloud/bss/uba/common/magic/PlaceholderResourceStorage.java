@@ -4,9 +4,9 @@ import com.iwhalecloud.bss.magic.magicapi.core.config.JsonCodeConstants;
 import com.iwhalecloud.bss.magic.magicapi.core.model.MagicEntity;
 import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceStorage;
 import com.iwhalecloud.bss.magic.magicapi.utils.JsonUtils;
-import com.iwhalecloud.bss.uba.common.CommonUtils;
-import com.iwhalecloud.bss.uba.common.prop.CommonConst;
-import com.iwhalecloud.bss.uba.common.prop.PropertyHolder;
+import com.iwhalecloud.bss.uba.comm.CommonUtils;
+import com.iwhalecloud.bss.uba.comm.prop.CommonConst;
+import com.iwhalecloud.bss.uba.comm.prop.PropertyHolder;
 import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 
 import java.nio.charset.StandardCharsets;

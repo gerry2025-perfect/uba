@@ -1,6 +1,6 @@
 package com.iwhalecloud.bss.uba.mq.consume;
 
-import com.iwhalecloud.bss.uba.common.ResultEntity;
+import com.iwhalecloud.bss.uba.comm.ResultEntity;
 
 import java.util.HashMap;
 import java.util.Map;

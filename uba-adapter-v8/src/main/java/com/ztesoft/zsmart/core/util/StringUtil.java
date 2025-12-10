@@ -57,7 +57,7 @@ public class StringUtil {
 
     public static boolean isEmpty(CharSequence charSequence){
         charSequence = charSequence==null?"":charSequence;
-        return charSequence.isEmpty();
+        return charSequence.length()==0;
     }
 
 }

@@ -1,6 +1,4 @@
-package com.iwhalecloud.bss.uba.adapter.comm;
-
-import java.util.Stack;
+package com.iwhalecloud.bss.uba.adapter;
 
 /**顶级UBA上下文*/
 public class UbaContext {

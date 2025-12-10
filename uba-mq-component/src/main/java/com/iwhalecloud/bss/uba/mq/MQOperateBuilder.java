@@ -1,9 +1,9 @@
 package com.iwhalecloud.bss.uba.mq;
 
-import com.iwhalecloud.bss.uba.common.CommonUtils;
+import com.iwhalecloud.bss.uba.comm.CommonUtils;
 import com.iwhalecloud.bss.uba.common.magic.MagicRunner;
-import com.iwhalecloud.bss.uba.common.prop.CommonConst;
-import com.iwhalecloud.bss.uba.common.prop.PropertyHolder;
+import com.iwhalecloud.bss.uba.comm.prop.CommonConst;
+import com.iwhalecloud.bss.uba.comm.prop.PropertyHolder;
 import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.iwhalecloud.bss.uba.mq.consume.MagicConsumeHandler;
 import com.iwhalecloud.bss.uba.mq.magic.resource.MessageQueueInfo;

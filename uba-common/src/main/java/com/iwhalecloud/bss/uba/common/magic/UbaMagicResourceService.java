@@ -915,7 +915,6 @@ public class UbaMagicResourceService implements MagicResourceService, JsonCodeCo
     }
 
     private <R> R writeLock(Supplier<R> supplier) {
-        SessionHolder.initSession(true);
         try {
             //当前使用的是数据库，针对V8需要进行事务开启和事务提交
             lock.writeLock().lock();

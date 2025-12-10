@@ -7,35 +7,33 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="uba-adapter-v8" />
-        <module name="uba-adapter-v9" />
         <module name="uba-mq-component" />
         <module name="magic-api-plugin-task" />
-        <module name="uba-common" />
         <module name="magic-api-plugin-swagger" />
+        <module name="magic-api-plugin-mongo" />
+        <module name="magic-editor" />
+        <module name="magic-api-plugin-springdoc" />
+        <module name="magic-api-plugin-redis" />
+        <module name="magic-api-plugin-component" />
+        <module name="magic-api-servlet-jakarta" />
+        <module name="uba-rest-component" />
+        <module name="uba-adapter-v8" />
+        <module name="uba-adapter-v9" />
+        <module name="uba-common" />
         <module name="uba-service-boot" />
         <module name="magic-api-spring-boot-starter" />
         <module name="uba-file-component" />
-        <module name="magic-api-plugin-mongo" />
-        <module name="magic-api-plugin-springdoc" />
-        <module name="magic-editor" />
-        <module name="magic-api-plugin-redis" />
         <module name="magic-script" />
         <module name="uba-adapter-comm" />
-        <module name="magic-api-plugin-component" />
-        <module name="magic-api-servlet-jakarta" />
         <module name="magic-api-plugin-cluster" />
         <module name="magic-api-plugin-git" />
         <module name="magic-api" />
         <module name="magic-api-servlet-javaee" />
-        <module name="uba-rest-component" />
         <module name="magic-api-plugin-nebula" />
         <module name="magic-api-plugin-elasticsearch" />
+        <module name="uba-plugin-component" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="uba-plugin-component" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

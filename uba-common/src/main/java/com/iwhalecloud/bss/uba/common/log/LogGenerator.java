@@ -1,6 +1,6 @@
 package com.iwhalecloud.bss.uba.common.log;
 
-import com.iwhalecloud.bss.uba.common.CommonUtils;
+import com.iwhalecloud.bss.uba.comm.CommonUtils;
 import com.iwhalecloud.bss.uba.common.TransactionIdGenerator;
 import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 

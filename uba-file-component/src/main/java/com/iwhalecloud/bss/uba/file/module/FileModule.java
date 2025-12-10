@@ -1,7 +1,7 @@
 package com.iwhalecloud.bss.uba.file.module;
 
-import com.iwhalecloud.bss.uba.common.CommonUtils;
-import com.iwhalecloud.bss.uba.common.prop.CommonConst;
+import com.iwhalecloud.bss.uba.comm.CommonUtils;
+import com.iwhalecloud.bss.uba.comm.prop.CommonConst;
 import com.iwhalecloud.bss.uba.file.magic.resource.FileInfo;
 import com.iwhalecloud.bss.uba.file.magic.resource.FileMagicDynamicRegistry;
 import com.iwhalecloud.bss.uba.file.operator.*;

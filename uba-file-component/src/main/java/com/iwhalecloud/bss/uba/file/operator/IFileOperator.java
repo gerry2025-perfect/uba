@@ -1,6 +1,6 @@
 package com.iwhalecloud.bss.uba.file.operator;
 
-import com.iwhalecloud.bss.uba.common.CommonUtils;
+import com.iwhalecloud.bss.uba.comm.CommonUtils;
 
 import java.io.InputStream;
 import java.util.List;

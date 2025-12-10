@@ -1,6 +1,6 @@
 package com.iwhalecloud.bss.uba.mq.consume;
 
-import com.iwhalecloud.bss.uba.common.ResultEntity;
+import com.iwhalecloud.bss.uba.comm.ResultEntity;
 import com.iwhalecloud.bss.uba.common.magic.MagicRunner;
 import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.iwhalecloud.bss.uba.mq.magic.resource.MessageQueueInfo;

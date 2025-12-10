@@ -1,7 +1,7 @@
 package com.iwhalecloud.bss.uba.mq.magic.resource;
 
 import com.iwhalecloud.bss.uba.common.dto.ParameterInfo;
-import com.iwhalecloud.bss.uba.common.prop.CommonConst;
+import com.iwhalecloud.bss.uba.comm.prop.CommonConst;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import com.iwhalecloud.bss.magic.magicapi.core.model.MagicEntity;

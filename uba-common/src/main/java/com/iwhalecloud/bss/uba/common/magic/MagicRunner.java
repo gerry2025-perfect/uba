@@ -1,8 +1,8 @@
 package com.iwhalecloud.bss.uba.common.magic;
 
-import com.iwhalecloud.bss.uba.common.CommonUtils;
-import com.iwhalecloud.bss.uba.common.ResultEntity;
-import com.iwhalecloud.bss.uba.common.exception.ExceptionDefine;
+import com.iwhalecloud.bss.uba.comm.CommonUtils;
+import com.iwhalecloud.bss.uba.comm.ResultEntity;
+import com.iwhalecloud.bss.uba.comm.exception.ExceptionDefine;
 import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.iwhalecloud.bss.magic.magicapi.core.service.MagicAPIService;
 

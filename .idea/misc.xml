@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/../../../magic-product/magic-api/pom.xml" />
         <option value="$PROJECT_DIR$/../../../magic-product/magic-api/magic-api-plugins/magic-api-plugin-task/pom.xml" />
         <option value="$PROJECT_DIR$/uba-adapter-v9/pom.xml" />
+        <option value="$PROJECT_DIR$/uba-adapter-comm/pom.xml" />
       </list>
     </option>
   </component>

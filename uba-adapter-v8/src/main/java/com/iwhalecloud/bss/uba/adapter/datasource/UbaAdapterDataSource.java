@@ -1,11 +1,9 @@
 package com.iwhalecloud.bss.uba.adapter.datasource;
 
-import com.iwhalecloud.bss.uba.adapter.comm.UbaContext;
+import com.iwhalecloud.bss.uba.adapter.UbaContext;
 import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.core.jdbc.JdbcUtil;
-import com.ztesoft.zsmart.core.jdbc.SessionContext;
-import com.ztesoft.zsmart.core.jdbc.ses.trans.TransactionHolder;
 
 import javax.sql.DataSource;
 import java.io.PrintWriter;

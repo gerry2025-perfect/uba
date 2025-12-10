@@ -44,35 +44,6 @@
     </profiles>
 
     <dependencies>
-        <dependency>
-            <groupId>javax.annotation</groupId>
-            <artifactId>javax.annotation-api</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.iwhalecloud.bss.magic</groupId>
-            <artifactId>magic-script</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.iwhalecloud.bss.magic</groupId>
-            <artifactId>magic-api-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>31.1-jre</version> <!-- or any recent version -->
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>dubbo</artifactId>
-        </dependency>
-
     </dependencies>
 
 </project>

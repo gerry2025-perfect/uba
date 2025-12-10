@@ -1,6 +1,6 @@
 package com.iwhalecloud.bss.uba.remote.module;
 
-import com.iwhalecloud.bss.uba.common.prop.CommonConst;
+import com.iwhalecloud.bss.uba.comm.prop.CommonConst;
 import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.iwhalecloud.bss.uba.remote.magic.resource.RestfulMagicDynamicRegistry;
 import org.springframework.http.MediaType;

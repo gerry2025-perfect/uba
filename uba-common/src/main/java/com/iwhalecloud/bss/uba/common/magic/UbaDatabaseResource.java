@@ -3,25 +3,15 @@ package com.iwhalecloud.bss.uba.common.magic;
 import com.iwhalecloud.bss.magic.magicapi.core.resource.DatabaseResource;
 import com.iwhalecloud.bss.magic.magicapi.core.resource.KeyValueResource;
 import com.iwhalecloud.bss.magic.magicapi.core.resource.Resource;
-import com.iwhalecloud.bss.magic.magicapi.utils.Assert;
-import com.iwhalecloud.bss.magic.magicapi.utils.IoUtils;
-import com.iwhalecloud.bss.uba.adapter.comm.UbaContext;
+import com.iwhalecloud.bss.uba.adapter.UbaContext;
 import com.iwhalecloud.bss.uba.adapter.datasource.SessionHolder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.support.rowset.SqlRowSet;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.sql.Blob;
-import java.sql.Clob;
-import java.sql.SQLException;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 /**
  * 数据库资源存储，针对V8需要做

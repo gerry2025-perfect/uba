@@ -1,10 +1,10 @@
 package com.iwhalecloud.bss.uba.common.dubbo;
 
-import com.iwhalecloud.bss.uba.common.CommonUtils;
-import com.iwhalecloud.bss.uba.common.exception.ExceptionDefine;
-import com.iwhalecloud.bss.uba.common.exception.UbaException;
-import com.iwhalecloud.bss.uba.common.prop.CommonConst;
-import com.iwhalecloud.bss.uba.common.prop.PropertyHolder;
+import com.iwhalecloud.bss.uba.comm.CommonUtils;
+import com.iwhalecloud.bss.uba.comm.exception.ExceptionDefine;
+import com.iwhalecloud.bss.uba.comm.exception.UbaException;
+import com.iwhalecloud.bss.uba.comm.prop.CommonConst;
+import com.iwhalecloud.bss.uba.comm.prop.PropertyHolder;
 import lombok.Data;
 import org.apache.dubbo.config.ApplicationConfig;
 import org.apache.dubbo.config.ReferenceConfig;

@@ -209,7 +209,11 @@ public class RestSiteOperator {
     }
 
     private String urlEncode(String s) {
-        return URLEncoder.encode(s, StandardCharsets.UTF_8);
+        try {
+            return URLEncoder.encode(s, StandardCharsets.UTF_8.name());
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private boolean isRegex(String format) {

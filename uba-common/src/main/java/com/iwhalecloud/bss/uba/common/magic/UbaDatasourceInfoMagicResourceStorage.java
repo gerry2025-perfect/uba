@@ -3,9 +3,9 @@ package com.iwhalecloud.bss.uba.common.magic;
 import com.iwhalecloud.bss.magic.magicapi.datasource.model.DataSourceInfo;
 import com.iwhalecloud.bss.magic.magicapi.datasource.service.DataSourceInfoMagicResourceStorage;
 import com.iwhalecloud.bss.magic.magicapi.utils.JsonUtils;
-import com.iwhalecloud.bss.uba.common.CommonUtils;
-import com.iwhalecloud.bss.uba.common.prop.CommonConst;
-import com.iwhalecloud.bss.uba.common.prop.PropertyHolder;
+import com.iwhalecloud.bss.uba.comm.CommonUtils;
+import com.iwhalecloud.bss.uba.comm.prop.CommonConst;
+import com.iwhalecloud.bss.uba.comm.prop.PropertyHolder;
 import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 
 import java.nio.charset.StandardCharsets;

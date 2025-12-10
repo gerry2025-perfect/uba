@@ -1,10 +1,10 @@
 package com.iwhalecloud.bss.uba.mq.consume;
 
-import com.iwhalecloud.bss.uba.common.CommonUtils;
-import com.iwhalecloud.bss.uba.common.ResultEntity;
-import com.iwhalecloud.bss.uba.common.exception.ExceptionDefine;
-import com.iwhalecloud.bss.uba.common.exception.UbaException;
-import com.iwhalecloud.bss.uba.common.prop.CommonConst;
+import com.iwhalecloud.bss.uba.comm.CommonUtils;
+import com.iwhalecloud.bss.uba.comm.ResultEntity;
+import com.iwhalecloud.bss.uba.comm.exception.ExceptionDefine;
+import com.iwhalecloud.bss.uba.comm.exception.UbaException;
+import com.iwhalecloud.bss.uba.comm.prop.CommonConst;
 import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import com.ztesoft.zsmart.core.mq.common.exception.CoreMQClientApiException;
 import com.ztesoft.zsmart.core.mq.model.CoreMQMessage;

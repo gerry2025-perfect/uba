@@ -1,7 +1,7 @@
 package com.iwhalecloud.bss.uba.file.operator;
 
-import com.iwhalecloud.bss.uba.common.exception.ExceptionDefine;
-import com.iwhalecloud.bss.uba.common.exception.UbaException;
+import com.iwhalecloud.bss.uba.comm.exception.ExceptionDefine;
+import com.iwhalecloud.bss.uba.comm.exception.UbaException;
 import com.iwhalecloud.bss.uba.common.releaser.AutoReleaser;
 import com.iwhalecloud.bss.uba.common.releaser.IReleasable;
 import com.iwhalecloud.bss.uba.file.magic.resource.FileInfo;

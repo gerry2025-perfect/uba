@@ -1,6 +1,6 @@
 package com.iwhalecloud.bss.uba.file.magic.resource;
 
-import com.iwhalecloud.bss.uba.common.CommonUtils;
+import com.iwhalecloud.bss.uba.comm.CommonUtils;
 import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.EventListener;
