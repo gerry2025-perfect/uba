@@ -2,7 +2,6 @@ package com.iwhalecloud.bss.uba.service.configuration;
 
 import com.iwhalecloud.bss.magic.magicapi.core.exception.MagicAPIException;
 import com.iwhalecloud.bss.magic.magicapi.core.model.MagicEntity;
-import com.iwhalecloud.bss.magic.magicapi.core.resource.DatabaseResource;
 import com.iwhalecloud.bss.magic.magicapi.core.resource.Resource;
 import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceService;
 import com.iwhalecloud.bss.magic.magicapi.core.service.MagicResourceStorage;
@@ -10,7 +9,6 @@ import com.iwhalecloud.bss.uba.common.magic.UbaDatabaseResource;
 import com.iwhalecloud.bss.uba.common.magic.UbaDatasourceInfoMagicResourceStorage;
 import com.iwhalecloud.bss.uba.common.magic.UbaMagicResourceService;
 import com.iwhalecloud.bss.uba.service.interceptor.CustomRequestInterceptor;
-import com.iwhalecloud.bss.uba.service.interceptor.CustomUIAuthorizationInterceptor;
 import com.iwhalecloud.bss.uba.service.provider.*;
 import com.iwhalecloud.bss.uba.service.scripts.CustomFunction;
 import com.iwhalecloud.bss.uba.service.scripts.CustomFunctionExtension;
@@ -91,12 +89,6 @@ public class MagicAPIConfiguration {
 
 	@Bean
 	@ConditionalOnMissingBean
-	public UbaDatasourceInfoMagicResourceStorage dataSourceInfoMagicResourceStorage() {
-		return new UbaDatasourceInfoMagicResourceStorage();
-	}
-
-	@Bean
-	@ConditionalOnMissingBean
 	public MagicResourceService magicResourceService(Resource workspace) {
 		return new UbaMagicResourceService(workspace, magicResourceStoragesProvider.getObject(), applicationContext);
 	}
@@ -127,14 +119,6 @@ public class MagicAPIConfiguration {
 	// @Bean
 	public PageProvider pageProvider() {
 		return new CustomPageProvider();
-	}
-
-	/**
-	 * 自定义UI界面鉴权
-	 */
-	// @Bean
-	public CustomUIAuthorizationInterceptor customUIAuthorizationInterceptor() {
-		return new CustomUIAuthorizationInterceptor();
 	}
 
 	/**

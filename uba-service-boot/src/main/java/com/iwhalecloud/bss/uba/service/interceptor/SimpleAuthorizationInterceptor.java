@@ -1,7 +1,6 @@
 package com.iwhalecloud.bss.uba.service.interceptor;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.iwhalecloud.bss.uba.adapter.log.UbaLogger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -33,7 +32,7 @@ import java.util.Map;
 @ConditionalOnProperty(prefix = "magic-api.ext.auth", name = "enable", havingValue = "true", matchIfMissing = false)
 @ConfigurationProperties(prefix = "magic-api.ext.auth")
 public class SimpleAuthorizationInterceptor implements AuthorizationInterceptor {
-    private static final Logger log = LoggerFactory.getLogger(SimpleAuthorizationInterceptor.class);
+    private static final UbaLogger log = UbaLogger.getLogger(SimpleAuthorizationInterceptor.class);
     /**
      * 加密因子
      */
